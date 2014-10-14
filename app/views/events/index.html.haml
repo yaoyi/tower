@@ -1,0 +1,365 @@
+.container.workspace.simple-stack.simple-stack-transition
+  .page.page-root.simple-pjax
+    #page-events.page-inner{"data-page-name" => "动态", "data-since" => "2014-10-14 12:56:29 UTC"}
+      .filters
+        %span.filters-title 筛选动态
+        .mcw-pop-select.filter-member
+          %span.selected-text 所有成员
+          %span.icon-arrow.fa.fa-chevron-down
+          %input#filter-member{:name => "by_member", :type => "hidden", :value => ""}
+      .team-events
+        .events-day{"data-absdate" => "2014-10-14T00:00:00+08:00"}
+          %h4.events-day-title 今
+          .events-day-content
+            - @events.each do |event, index|
+              - if index == 0 or @events[index - 1].project.name == event.project.name
+                .events-ancestor{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82"}
+                  %h5.events-ancestor-title
+                    %a{:href => "#{team_project_path(@team, event.project))}", :target => "_blank", :title => "test project"} event.project.name
+                  = render "#{event.eventable_type}_#{event.action}"
+              - else
+                  
+        .events-day{"data-absdate" => "2014-10-14T00:00:00+08:00"}
+          %h4.events-day-title 今
+          .events-day-content
+            .events-ancestor{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82"}
+              %h5.events-ancestor-title
+                %a{:href => "/projects/80c38953262f47d394e1dc22302a1e82", :target => "_blank", :title => "test project"} test project
+              #event-7752074.event.event-common.event-todolist-add{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82"}
+                %a.from{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"}
+                  %img.avatar{:alt => "super", :src => "https://tower.im/assets/default_avatars/noon.jpg"}/
+                %i.icon-event
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-14T16:52:13+08:00", :href => "#event-7752074"} 16:52
+                    %span.event-actor
+                      %a.link-member{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"} super
+                    %span.event-action
+                      创建了任务清单
+                    %span.event-text
+                      %span.emphasize
+                        %a.todolist-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/lists/5d265c2f026245d38d94f5e2f8c8a0a1/show", :title => "todolist 2"} todolist 2
+              #event-7752044.event.event-common.event-todolist-del{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82"}
+                %a.from{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"}
+                  %img.avatar{:alt => "super", :src => "https://tower.im/assets/default_avatars/noon.jpg"}/
+                %i.icon-event
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-14T16:51:45+08:00", :href => "#event-7752044"} 16:51
+                    %span.event-actor
+                      %a.link-member{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"} super
+                    %span.event-action
+                      删除了任务清单
+                    %span.event-text
+                      %span.emphasize
+                        %a.todolist-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/lists/7c234be2e56d45ceb640c2f1e7d9a279/show", :title => "todolist 1"} todolist 1
+              #event-7751899.event.event-common.event-todolist-add{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82"}
+                %a.from{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"}
+                  %img.avatar{:alt => "super", :src => "https://tower.im/assets/default_avatars/noon.jpg"}/
+                %i.icon-event
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-14T16:50:00+08:00", :href => "#event-7751899"} 16:50
+                    %span.event-actor
+                      %a.link-member{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"} super
+                    %span.event-action
+                      创建了任务清单
+                    %span.event-text
+                      %span.emphasize
+                        %a.todolist-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/lists/7c234be2e56d45ceb640c2f1e7d9a279/show", :title => "todolist 1"} todolist 1
+        .events-day{"data-absdate" => "2014-10-13T00:00:00+08:00"}
+          %h4.events-day-title 昨
+          .events-day-content
+            .events-ancestor{"data-ancestor-guid" => "96aa9d0d6f0746c2b5d91833a8b5419d"}
+              %h5.events-ancestor-title
+                %a{:href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d", :target => "_blank", :title => "hello"} hello
+              #event-7714742.event.event-comment{"data-ancestor-guid" => "96aa9d0d6f0746c2b5d91833a8b5419d", "data-ancestor-name" => "hello", "data-ancestor-url" => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d", "data-commentable-guid" => "d7a3d669c6f44688a9d202efca33475c"}
+                %a.from{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"}
+                  %img.avatar{:alt => "yaoyi011", :src => "https://tower.im/assets/default_avatars/noon.jpg"}/
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T23:12:27+08:00", :href => "#event-7714742"} 23:12
+                    %span.event-actor
+                      %a.link-member{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"} yaoyi011
+                    %span.event-action
+                      回复了讨论
+                    %span.event-commentable
+                      %a.message-rest{"data-stack" => "true", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/messages/d7a3d669c6f44688a9d202efca33475c", :title => "topic 1"} topic 1
+                  .event-body
+                    %a.event-text{"data-stack" => "true", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/messages/d7a3d669c6f44688a9d202efca33475c#d9781d71694a4bfc90005f324aaf35d4", :title => "@linyaoyi&nbsp;reply 1"} @linyaoyi&nbsp;reply 1
+              #event-7714734.event.event-comment{"data-ancestor-guid" => "96aa9d0d6f0746c2b5d91833a8b5419d", "data-ancestor-name" => "hello", "data-ancestor-url" => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d", "data-commentable-guid" => "d7a3d669c6f44688a9d202efca33475c"}
+                %a.from{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"}
+                  %img.avatar{:alt => "yaoyi011", :src => "https://tower.im/assets/default_avatars/noon.jpg"}/
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T23:12:20+08:00", :href => "#event-7714734"} 23:12
+                    %span.event-actor
+                      %a.link-member{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"} yaoyi011
+                    %span.event-action
+                      回复了讨论
+                    %span.event-commentable
+                      %a.message-rest{"data-stack" => "true", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/messages/d7a3d669c6f44688a9d202efca33475c", :title => "topic 1"} topic 1
+                  .event-body
+                    %a.event-text{"data-stack" => "true", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/messages/d7a3d669c6f44688a9d202efca33475c#6473afebea79442ca76f7e55f4d3609f", :title => "reply1"} reply1
+              #event-7714717.event.event-common.event-message-add{"data-ancestor-guid" => "96aa9d0d6f0746c2b5d91833a8b5419d", "data-ancestor-name" => "hello", "data-ancestor-url" => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d"}
+                %a.from{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"}
+                  %img.avatar{:alt => "linyaoyi", :src => "https://tower.im/assets/default_avatars/nightfall.jpg"}/
+                %i.icon-event
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T23:12:03+08:00", :href => "#event-7714717"} 23:12
+                    %span.event-actor
+                      %a.link-member{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"} linyaoyi
+                    %span.event-action
+                      创建了讨论
+                    %span.event-text
+                      %span.emphasize
+                        %a.message-rest{"data-stack" => "true", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/messages/d7a3d669c6f44688a9d202efca33475c", :title => "topic 1"} topic 1
+                  .event-body
+                    %span.event-text{:title => ""}
+              #event-7714685.event.event-common.event-project-add{"data-ancestor-guid" => "96aa9d0d6f0746c2b5d91833a8b5419d", "data-ancestor-name" => "hello", "data-ancestor-url" => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d"}
+                %a.from{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"}
+                  %img.avatar{:alt => "linyaoyi", :src => "https://tower.im/assets/default_avatars/nightfall.jpg"}/
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T23:11:28+08:00", :href => "#event-7714685"} 23:11
+                    %span.event-actor
+                      %a.link-member{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"} linyaoyi
+                    %span.event-action
+                      创建了项目
+                    %span.event-text
+                      %a.emphasize{:href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d", :target => "_blank"} hello
+            .events-ancestor{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82"}
+              %h5.events-ancestor-title
+                %a{:href => "/projects/80c38953262f47d394e1dc22302a1e82", :target => "_blank", :title => "test project"} test project
+              #event-7714554.event.event-comment{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82", "data-commentable-guid" => "06c76d47deae4ab1b4eec0102edabde7"}
+                %a.from{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"}
+                  %img.avatar{:alt => "yaoyi011", :src => "https://tower.im/assets/default_avatars/noon.jpg"}/
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T23:07:28+08:00", :href => "#event-7714554"} 23:07
+                    %span.event-actor
+                      %a.link-member{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"} yaoyi011
+                    %span.event-action
+                      回复了讨论
+                    %span.event-commentable
+                      %a.message-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/messages/06c76d47deae4ab1b4eec0102edabde7", :title => "讨论一"} 讨论一
+                  .event-body
+                    %a.event-text{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/messages/06c76d47deae4ab1b4eec0102edabde7#dbbea902487d47779eb5bac109dcd056", :title => "@linyaoyi&nbsp;这个"} @linyaoyi&nbsp;这个
+              #event-7714546.event.event-comment{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82", "data-commentable-guid" => "06c76d47deae4ab1b4eec0102edabde7"}
+                %a.from{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"}
+                  %img.avatar{:alt => "linyaoyi", :src => "https://tower.im/assets/default_avatars/nightfall.jpg"}/
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T23:07:11+08:00", :href => "#event-7714546"} 23:07
+                    %span.event-actor
+                      %a.link-member{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"} linyaoyi
+                    %span.event-action
+                      回复了讨论
+                    %span.event-commentable
+                      %a.message-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/messages/06c76d47deae4ab1b4eec0102edabde7", :title => "讨论一"} 讨论一
+                  .event-body
+                    %a.event-text{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/messages/06c76d47deae4ab1b4eec0102edabde7#a151b3489cd1469db8f5395a1a7959b2", :title => "试试"} 试试
+              #event-7714523.event.event-common.event-message-add{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82"}
+                %a.from{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"}
+                  %img.avatar{:alt => "yaoyi011", :src => "https://tower.im/assets/default_avatars/noon.jpg"}/
+                %i.icon-event
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T23:06:08+08:00", :href => "#event-7714523"} 23:06
+                    %span.event-actor
+                      %a.link-member{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"} yaoyi011
+                    %span.event-action
+                      创建了讨论
+                    %span.event-text
+                      %span.emphasize
+                        %a.message-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/messages/06c76d47deae4ab1b4eec0102edabde7", :title => "讨论一"} 讨论一
+                  .event-body
+                    %span.event-text{:title => ""}
+              #event-7714504.event.event-comment{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82", "data-commentable-guid" => "b6512e41cc674969a4097289108b615e"}
+                %a.from{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"}
+                  %img.avatar{:alt => "yaoyi011", :src => "https://tower.im/assets/default_avatars/noon.jpg"}/
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T23:05:22+08:00", :href => "#event-7714504"} 23:05
+                    %span.event-actor
+                      %a.link-member{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"} yaoyi011
+                    %span.event-action
+                      回复了讨论
+                    %span.event-commentable
+                      %a.message-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/messages/b6512e41cc674969a4097289108b615e", :title => "asdawd"} asdawd
+                  .event-body
+                    %a.event-text{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/messages/b6512e41cc674969a4097289108b615e#c06e92dc2a1842d9826215f7374aaa16", :title => "en"} en
+              #event-7714488.event.event-common.event-message-add{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82"}
+                %a.from{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"}
+                  %img.avatar{:alt => "yaoyi011", :src => "https://tower.im/assets/default_avatars/noon.jpg"}/
+                %i.icon-event
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T23:05:05+08:00", :href => "#event-7714488"} 23:05
+                    %span.event-actor
+                      %a.link-member{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"} yaoyi011
+                    %span.event-action
+                      创建了讨论
+                    %span.event-text
+                      %span.emphasize
+                        %a.message-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/messages/fdcc4b848062492a97b8f6b21c19f4d8", :title => "asdawdawd"} asdawdawd
+                  .event-body
+                    %span.event-text{:title => ""}
+              #event-7673266.event.event-comment{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82", "data-commentable-guid" => "b6512e41cc674969a4097289108b615e"}
+                %a.from{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"}
+                  %img.avatar{:alt => "linyaoyi", :src => "https://tower.im/assets/default_avatars/nightfall.jpg"}/
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T10:57:44+08:00", :href => "#event-7673266"} 10:57
+                    %span.event-actor
+                      %a.link-member{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"} linyaoyi
+                    %span.event-action
+                      回复了讨论
+                    %span.event-commentable
+                      %a.message-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/messages/b6512e41cc674969a4097289108b615e", :title => "asdawd"} asdawd
+                  .event-body
+                    %a.event-text{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/messages/b6512e41cc674969a4097289108b615e#646cbe355e164e7592f70840bffb4c15", :title => "test:sleeping:"}
+                      test
+                      %img.emoji{:alt => "sleeping", "data-emoji" => "", "data-non-image" => "", :src => "https://tower.im/images/emoji/sleeping.png"}/
+              #event-7673139.event.event-common.event-todo-close{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82"}
+                %a.from{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"}
+                  %img.avatar{:alt => "yaoyi011", :src => "https://tower.im/assets/default_avatars/noon.jpg"}/
+                %i.icon-event
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T10:56:42+08:00", :href => "#event-7673139"} 10:56
+                    %span.event-actor
+                      %a.link-member{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"} yaoyi011
+                    %span.event-action
+                      完成了任务
+                    %span.event-text
+                      %span.emphasize
+                        %a.todo-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/todos/b301940000c845f3a7aae38150618d87", :title => "订单流程"} 订单流程
+              #event-7673084.event.event-common.event-todo-assign{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82"}
+                %a.from{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"}
+                  %img.avatar{:alt => "linyaoyi", :src => "https://tower.im/assets/default_avatars/nightfall.jpg"}/
+                %i.icon-event
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T10:56:18+08:00", :href => "#event-7673084"} 10:56
+                    %span.event-actor
+                      %a.link-member{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"} linyaoyi
+                    %span.event-action
+                      给 yaoyi011 指派了任务
+                    %span.event-text
+                      %span.emphasize
+                        %a.todo-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/todos/b301940000c845f3a7aae38150618d87", :title => "订单流程"} 订单流程
+              #event-7673082.event.event-common.event-todo-due_at_changed{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82"}
+                %a.from{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"}
+                  %img.avatar{:alt => "linyaoyi", :src => "https://tower.im/assets/default_avatars/nightfall.jpg"}/
+                %i.icon-event
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T10:56:18+08:00", :href => "#event-7673082"} 10:56
+                    %span.event-actor
+                      %a.link-member{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"} linyaoyi
+                    %span.event-action
+                      将任务完成时间从
+                      %span{"data-readable-date" => ""} 没有截止日期
+                      修改为
+                      %span{"data-readable-date" => "2014-10-17T23:59:59+08:00"} 10月17日
+                    %span.event-text
+                      %span.emphasize
+                        %a.todo-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/todos/b301940000c845f3a7aae38150618d87", :title => "订单流程"} 订单流程
+              #event-7673072.event.event-common.event-todo-add{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82"}
+                %a.from{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"}
+                  %img.avatar{:alt => "linyaoyi", :src => "https://tower.im/assets/default_avatars/nightfall.jpg"}/
+                %i.icon-event
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T10:56:10+08:00", :href => "#event-7673072"} 10:56
+                    %span.event-actor
+                      %a.link-member{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"} linyaoyi
+                    %span.event-action
+                      创建了任务
+                    %span.event-text
+                      %span.emphasize
+                        %a.todo-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/todos/b301940000c845f3a7aae38150618d87", :title => "订单流程"} 订单流程
+              #event-7673047.event.event-common.event-todolist-add{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82"}
+                %a.from{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"}
+                  %img.avatar{:alt => "linyaoyi", :src => "https://tower.im/assets/default_avatars/nightfall.jpg"}/
+                %i.icon-event
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T10:56:00+08:00", :href => "#event-7673047"} 10:56
+                    %span.event-actor
+                      %a.link-member{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"} linyaoyi
+                    %span.event-action
+                      创建了任务清单
+                    %span.event-text
+                      %span.emphasize
+                        %a.todolist-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/lists/23c978aa85134f50a8033283ca28fef9/show", :title => "设计文稿"} 设计文稿
+              #event-7672939.event.event-common.event-upload-add{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82"}
+                %a.from{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"}
+                  %img.avatar{:alt => "linyaoyi", :src => "https://tower.im/assets/default_avatars/nightfall.jpg"}/
+                %i.icon-event
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T10:55:12+08:00", :href => "#event-7672939"} 10:55
+                    %span.event-actor
+                      %a.link-member{:href => "/members/4ff03803694447f89160efd29f628968", :target => "_blank"} linyaoyi
+                    %span.event-action
+                      上传了文件
+                    %span.event-text
+                      %a.emphasize{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/uploads/459641bfc9164f9f850d672ede38be8b"} 1502bb32063eb68c44944a21c974a5ec.jpg
+              #event-7672352.event.event-common.event-message-add{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82"}
+                %a.from{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"}
+                  %img.avatar{:alt => "yaoyi011", :src => "https://tower.im/assets/default_avatars/noon.jpg"}/
+                %i.icon-event
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T10:50:22+08:00", :href => "#event-7672352"} 10:50
+                    %span.event-actor
+                      %a.link-member{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"} yaoyi011
+                    %span.event-action
+                      创建了讨论
+                    %span.event-text
+                      %span.emphasize
+                        %a.message-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/messages/b6512e41cc674969a4097289108b615e", :title => "asdawd"} asdawd
+                  .event-body
+                    %span.event-text{:title => ""}
+              #event-7672323.event.event-common.event-project-add{"data-ancestor-guid" => "80c38953262f47d394e1dc22302a1e82", "data-ancestor-name" => "test project", "data-ancestor-url" => "/projects/80c38953262f47d394e1dc22302a1e82"}
+                %a.from{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"}
+                  %img.avatar{:alt => "yaoyi011", :src => "https://tower.im/assets/default_avatars/noon.jpg"}/
+                .event-main
+                  .event-head
+                    %a.event-created-at{"data-created-at" => "2014-10-13T10:50:13+08:00", :href => "#event-7672323"} 10:50
+                    %span.event-actor
+                      %a.link-member{:href => "/members/e0f43d2df23a4b7ab76877d4f4ff4d5c", :target => "_blank"} yaoyi011
+                    %span.event-action
+                      创建了项目
+                    %span.event-text
+                      %a.emphasize{:href => "/projects/80c38953262f47d394e1dc22302a1e82", :target => "_blank"} test project
+      %a#btn-load-more{:href => "javascript:;"} 加载更多内容
+      %script#tpl-events-day{:type => "text/html"}
+        .events-day{"data-absdate" => "{{ date }}"}
+          %h4.events-day-title
+            %span.date
+            %span.day
+          .events-day-content
+      %script#tpl-events-ancestor{:type => "text/html"}
+        .events-ancestor{"data-ancestor-guid" => "{{ guid }}"}
+          %h5.events-ancestor-title
+            %a{:href => "{{ url }}", :target => "_blank", :title => "{{ name }}"} {{ name }}
+      %script#tpl-events-filter-member{:type => "text/html"}
+        .groups-members
+          .groups
+            %h5 小组
+            %ul.mcw-pop-select-list
+              %li{"data-group-id" => "5d8f90d06ea34c73bbf0d091011a1ff4"} 客服小组
+          .members
+            %h5 成员
+            %ul.mcw-pop-select-list
+              %li{"data-member-id" => "-1"} 所有成员
+              %li{"data-group-id" => "", "data-member-id" => "da5118d270264f20af185531f2135a01"}
+                admin
+              %li{"data-group-id" => "", "data-member-id" => "4ff03803694447f89160efd29f628968"}
+                normal
+              %li{"data-group-id" => "", "data-member-id" => "e0f43d2df23a4b7ab76877d4f4ff4d5c"}
+                super

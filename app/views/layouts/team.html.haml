@@ -1,0 +1,52 @@
+!!!
+%html
+  %head
+    %title Tower
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .header
+      %h1.logo
+        %a{"data-stack" => "", "data-stack-root" => "", :href => "#{team_path(@team)}", :title => "首页"} Tower
+      %ul.nav
+        %li#nav-project.active
+          %a{"data-stack" => "", "data-stack-root" => "", :href => "#{team_projects_path(@team)}"} 项目
+        %li#nav-events
+          %a{"data-stack" => "", "data-stack-root" => "", :href => "#{team_events_path(@team)}"} 动态
+        %li#nav-week
+          %a{"data-stack" => "", "data-stack-root" => "", :href => "weekly_reports"} 周报
+        %li#nav-calendar
+          %a{"data-stack" => "", "data-stack-fluid" => "", "data-stack-root" => "", :href => "calendars"} 日历
+        %li#nav-members
+          %a{"data-stack" => "", "data-stack-root" => "", :href => "members"} 团队
+        %li#nav-me
+          %a{"data-stack" => "", "data-stack-root" => "", :href => "/members/4ff03803694447f89160efd29f628968?me=1"} 我自己
+      .command-bar
+        .search-wrap
+          = link_to destroy_user_session_path, method: :delete do
+            %i.fa.fa-power-off
+        .search-wrap
+          %a.link-search{:href => "javascript:;", :title => "搜索"}
+            %span.icon-search
+          %form#form-search.form{:action => "/teams/156afb3ce0f54fc98c06f3805dcda316/search", :method => "get"}
+            %input#txt-search.keyword.no-border{:name => "keyword", :placeholder => "搜索", :type => "text"}
+        .notification-info
+          %a.link{"data-stack" => "", "data-stack-root" => "", :href => "/teams/156afb3ce0f54fc98c06f3805dcda316/notifications/"} 通知
+          %a#notification-count.label.unread{"data-unread-count" => "0", "data-url" => "/teams/156afb3ce0f54fc98c06f3805dcda316/notifications/unread_counts", :href => "javascript:;", :title => "新的通知"}
+            %span.fa.fa-bell-o.bell
+            %span.num 1
+          .noti-pop
+            .noti-pop-hd
+              %span.title 通知
+              %a.noti-settings{"data-stack" => "", "data-stack-root" => "", :href => "/members/4ff03803694447f89160efd29f628968/notification_settings/", :title => "设置通知发送方式"} 通知设置
+              %a#noti-mark-read.mark-as-read{:href => "javascript:;", :title => "全部标记为已读"} 全部标为已读
+            .noti-pop-empty{:style => "display: none;"} - 没有新通知 -
+            .noti-pop-action
+              %a.noti-all-link{"data-stack" => "", "data-stack-root" => "", :href => "/teams/156afb3ce0f54fc98c06f3805dcda316/notifications/"} 查看全部
+        .account-info
+          .member-settings
+            %a.link-member-menu{:href => "javascript:;", :title => "linyaoyi"}
+              %img.avatar{:alt => "linyaoyi", :src => "https://tower.im/assets/default_avatars/noon.jpg"}
+                %span.fa.fa-caret-down
+    = yield

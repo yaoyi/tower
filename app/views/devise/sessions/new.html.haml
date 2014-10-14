@@ -1,0 +1,23 @@
+.wrapper
+  #page-signup.page
+    .sign-page
+      .hd
+        %h1.logo
+          %a{:href => "/"} tower.im
+      .bd
+        = form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form'}) do |f|
+          .form-item
+            .form-field
+              = f.email_field :email, :class => 'email'
+          .form-item
+            .form-field
+              = f.password_field :password, :class => 'password'
+          .form-item.form-buttons
+            = f.submit "登录", :id => "btn-signup", :class => "btn btn-primary btn-large btn-submit"
+            .desc
+              %p.left
+                没有 Tower 帐号？
+                %span
+                  %a{:href => "/users/sign_up"} 注册 →
+      .ft
+        © 彩程设计
