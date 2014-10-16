@@ -1,0 +1,10 @@
+#page-todo.page-inner
+  %ul.todo-new-wrap{:style => 'margin-top:30px;'}
+    %li.todo-form.new
+      = form_for [@project, @todo], :html => {:class => 'form'} do |f|
+        .form-body
+          = f.text_area :content, :class => 'todo-content no-border', :placeholder => '新的任务', :style => "overflow: hidden; word-wrap: break-word; resize: none; height: 24px;"
+          = f.select :assignee, options_for_select(@project.members.collect {|u| [ u.nickname, u.id ] })
+          = f.date_field :due_at
+          .buttons.create-buttons
+            %button.btn.btn-primary.btn-create-todo{"data-disable-with" => "正在保存...", :type => "submit"} 保存任务

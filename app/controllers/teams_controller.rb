@@ -18,98 +18,10 @@ class TeamsController < ApplicationController
 	end
 
 	def show
-		@team = current_user.teams.find(params[:id])
+		session[:team_id] = params[:id]
+		redirect_to team_projects_path(params[:id])
 	end
-
-	def trigger_project_add
-		team = Team.find(params[:id])
-		project = Project.new
-		project.title = SecureRandom.hex
-		project.user = current_user
-		project.team = team
-		project.save
-	end
-
-	def trigger_project_del
-		event = Event.new
-		event.user = current_user
-		event.team = 
-	end
-
-	def trigger_topic_add
-		event = Event.new
-		event.user = current_user
-		event.team = 
-	end
-
-	def trigger_topic_del
-		event = Event.new
-		event.user = current_user
-		event.team = 
-	end
-
-	def trigger_comment_add
-		event = Event.new
-		event.user = current_user
-		event.team = 
-	end
-	def trigger_comment_del
-		event = Event.new
-		event.user = current_user
-		event.team = 
-	end
-	def trigger_assign_add
-		event = Event.new
-		event.user = current_user
-		event.team = 
-	end
-
-	def trigger_assign_edit
-		event = Event.new
-		event.user = current_user
-		event.team = 
-	end
-
-	def trigger_assign_del
-		event = Event.new
-		event.user = current_user
-		event.team = 
-	end
-
-	def trigger_time_edit
-		event = Event.new
-		event.user = current_user
-		event.team = 
-	end
-
-	def trigger_todolist_add
-		event = Event.new
-		event.user = current_user
-		event.team = 
-	end
-
-	def trigger_todolist_del
-		event = Event.new
-		event.user = current_user
-		event.team = 
-	end
-
-	def trigger_todo_add
-		event = Event.new
-		event.user = current_user
-		event.team = 
-	end
-
-	def trigger_todo_del
-		event = Event.new
-		event.user = current_user
-		event.team = 
-	end
-
-
 	
-
-
 	protected
 	def team_params
 		params.require(:team).permit!

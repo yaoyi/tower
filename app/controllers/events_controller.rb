@@ -4,6 +4,5 @@ class EventsController < ApplicationController
 	def index
 		@team = current_user.teams.find(params[:team_id])
 		@events = @team.events
-		@projects = @team.projects
 	end
 end

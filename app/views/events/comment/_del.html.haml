@@ -1,0 +1,17 @@
+.event.event-comment
+  %a.from{:href => "#{user_path(event.actor)}", :target => "_blank"}
+    %img.avatar{:alt => "admin", :src => "#{gravatar_image_url(event.actor.email)}"}/
+  .event-main
+    .event-head
+      %a.event-created-at
+        = event.created_at.strftime("%H:%M")
+      %span.event-actor
+        %a.link-member{:href => "#{team_user_path(current_team, event.actor)}", :target => "_blank"}
+          = event.actor.nickname
+      %span.event-action
+        删除了回复
+      %span.event-commentable
+        %a.todo-rest{"data-stack" => "true", :href => "#{project_todo_path(event.project, event.eventable.commentable)}", :title => "task 1"}
+          = event.eventable.commentable.content
+    .event-body
+      = event.eventable.content

@@ -1,0 +1,94 @@
+#page-project.page-inner{"data-guest-unlockable" => "", "data-page-name" => "test project", "data-project-creator" => "e0f43d2df23a4b7ab76877d4f4ff4d5c", "data-since" => "2014-10-15 14:09:28 UTC"}
+  .project-header
+    .project-hd-info
+      %span.project-title 
+        = @project.name
+      %br
+        %span.project-desc
+  .project-links
+    %a.link-admin.link-admin-members{"data-nocache" => "", "data-stack" => "", "data-visible-to" => "admin", :href => "/projects/80c38953262f47d394e1dc22302a1e82/members", :title => "成员管理"} 成员
+    %a.link-admin.link-admin-settings{"data-nocache" => "", "data-stack" => "", "data-visible-to" => "admin", :href => "/projects/80c38953262f47d394e1dc22302a1e82/settings", :title => "项目设置"} 设置
+    %a.link-admin.link-recap{"data-nocache" => "true", "data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/recap", :title => "查看项目的每日进展"} 进展
+    %a.link-admin.link-stat{"data-nocache" => "", "data-stack" => "", :href => "/projects/80c38953262f47d394e1dc22302a1e82/stat", :title => "项目数据统计"} 统计
+  %h3
+    %a.title{"data-stack" => "", :href => "/projects/80c38953262f47d394e1dc22302a1e82/todos"} 任务清单
+  .todos-all
+    .filters-wrap
+      .filters
+        %h5 任务筛选
+        %select#filter-assignee
+          %option{:value => "0"} 所有成员
+          %option{:disabled => ""} -----
+          %option{:value => "e0f43d2df23a4b7ab76877d4f4ff4d5c"} super (我自己)
+          %option{:value => "4ff03803694447f89160efd29f628968"} normal
+          %option{:value => "da5118d270264f20af185531f2135a01"} admin
+          %option{:disabled => ""} -----
+          %option{:value => "-1"} 未分派
+        %br
+          %select#filter-due
+            %option{:value => "-1"} 所有时间
+            %option{:disabled => ""} -----
+            %option{:value => "0"} 今天
+            %option{:value => "1"} 明天
+            %option{:value => "2"} 本周
+            %option{:value => "3"} 下周
+            %option{:value => "5"} 以后
+            %option{:disabled => ""} -----
+            %option{:value => "4"} 已延误
+            %option{:value => "6"} 没有截止时间
+          %br
+            %span.filter-desc{:style => "display: none;"}
+              %strong> ←
+              筛选结果已用
+              %em> 荧光笔
+              标记
+    .todolists-wrap
+      .todolist-form.new
+        = form_for [@project, Todolist.new], :html => {:class => "form"} do |f|
+          = f.text_field :name, :placeholder => "任务清单名称", :class => "todolist-name no-border"
+          %p.form-buttons
+            = f.submit "保存，开始添加任务",:class => "btn btn-create-todolist btn-primary"
+      .todolists.ui-sortable
+        - @project.todolists.each do |todolist|
+          - unless todolist.deleted?
+            .todolist
+              .title
+                %h4
+                  %span.name
+                    %a.todolist-rest{:href => "#{project_todolist_path(@project, todolist)}", :title => "#{todolist.name}"}  
+                      = todolist.name
+                  = link_to(project_todolist_path(@project, todolist), data: { confirm: "Are you sure?" }, :method => :delete) do
+                    %i.fa.fa-trash-o.fa-fw
+              %ul.todos.todos-uncompleted.ui-sortable
+                - todolist.todos.each do |todo|
+                  - unless todo.deleted?
+                    %li.todo
+                      .todo-wrap
+                        = form_tag done_project_todo_path(@project,todo),:style => 'display:inline;', :remote => true do
+                          = check_box_tag 'done', todo.done, todo.done, :onchange => "$(this.form).submit();"
+                        %span.todo-content
+                          %span.raw
+                            = todo.content
+                          %span.content-non-linkable
+                            %span.todo-rest{:title => "#{todo.content}"}
+                              = todo.content
+                          %span.content-linkable
+                            %a.todo-rest{"data-stack" => "true", :href => "#{project_todo_path(@project, todo)}", :title => "aaa"}
+                              = todo.content
+                        %a.label.todo-assign-due.delay
+                          %span.assignee
+                            = todo.assignee.nickname unless todo.assignee.nil?
+                          %span.due 
+                            = todo.due_at.strftime('%y-%m-%d') unless todo.due_at.nil?
+                        = link_to(project_todo_path(@project, todo), data: { confirm: "Are you sure?" }, :method => :delete) do
+                          %i.fa.fa-trash-o.fa-fw
+              %ul.todo-new-wrap
+                %li.todo-form.new
+                  = form_for [@project, Todo.new], :html => {:class => 'form'} do |f|
+                    = hidden_field_tag 'todolist_id', todolist.id
+                    .form-body
+                      = f.text_area :content, :class => 'todo-content no-border', :placeholder => '新的任务', :style => "overflow: hidden; word-wrap: break-word; resize: none; height: 24px;"
+                      = f.select :assignee, options_for_select(@project.members.collect {|u| [ u.nickname, u.id ] })
+                      = f.date_field :due_at
+                      .buttons.create-buttons
+                        %button.btn.btn-primary.btn-create-todo{"data-disable-with" => "正在保存...", :type => "submit"} 添加任务

@@ -1,0 +1,12 @@
+#page-projects.page-inner{"data-page-name" => "所有项目"}
+  .projects.grid-view.ui-sortable
+    - @projects.each do |project|
+      %a.project.c2.i1.project-welcome{"data-access-id" => "998242", "data-stack" => "", :href => "#{project_path(project)}", :title => "#{project.name}"}
+        %span.badge
+        %span.name
+          = project.name
+        %span.desc{:title => "#{project.desc}"}
+          = project.desc
+    %a.project.new{"data-nocache" => "", "data-stack" => "", :href => "#{new_team_project_path(@team)}", :title => "创建新项目"}
+      %span.badge
+      %span.name 创建新项目

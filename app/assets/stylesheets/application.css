@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require chosen
  *= require_tree .
  *= require_self
  */
@@ -3677,7 +3678,7 @@ div.comment.comment-form.edit .form-field {
     top: 13px;
     width: 22px;
     height: 22px;
-    background-image: url(/assets/icon-comment-events-0b9148931195a82f7f3b350e22988811.png);
+    background-image: url(https://tower.im/assets/icon-comment-events-0b9148931195a82f7f3b350e22988811.png);
     background-repeat: no-repeat;
     background-size: 22px auto;
     background-position: -22px 0;
@@ -5572,19 +5573,19 @@ div.comment.comment-form.edit .form-field {
 }
 
 .page-inner[data-archived]#page-calendar-event[data-locked] .detail-star-action,.page-inner[data-locked]#page-calendar-event[data-locked] .detail-star-action,.page-inner[data-deleted]#page-calendar-event[data-locked] .detail-star-action {
-    display: none;
+    /*display: none;*/
 }
 
 .page-inner[data-archived] .file .file-links .link-delete,.page-inner[data-archived] .file .file-links .link-move,.page-inner[data-locked] .file .file-links .link-delete,.page-inner[data-locked] .file .file-links .link-move,.page-inner[data-deleted] .file .file-links .link-delete,.page-inner[data-deleted] .file .file-links .link-move {
-    display: none;
+    /*display: none;*/
 }
 
 .page-inner[data-archived] .file .file-links .link-download,.page-inner[data-locked] .file .file-links .link-download,.page-inner[data-deleted] .file .file-links .link-download {
-    margin-right: 20px !important;
+    /*margin-right: 20px !important;*/
 }
 
 .page-inner[data-archived] .dir .dir-links .link-delete,.page-inner[data-archived] .dir .dir-links .link-move,.page-inner[data-locked] .dir .dir-links .link-delete,.page-inner[data-locked] .dir .dir-links .link-move,.page-inner[data-deleted] .dir .dir-links .link-delete,.page-inner[data-deleted] .dir .dir-links .link-move {
-    display: none;
+    /*display: none;*/
 }
 
 .page-inner[data-archived] .dir .dir-links .link-download,.page-inner[data-locked] .dir .dir-links .link-download,.page-inner[data-deleted] .dir .dir-links .link-download {
@@ -5592,11 +5593,11 @@ div.comment.comment-form.edit .form-field {
 }
 
 .page-inner[data-archived] .comment .actions,.page-inner[data-locked] .comment .actions,.page-inner[data-deleted] .comment .actions {
-    display: none;
+    /*display: none;*/
 }
 
 .page-inner[data-archived] .comment.comment-form,.page-inner[data-locked] .comment.comment-form,.page-inner[data-deleted] .comment.comment-form {
-    display: none;
+    /*display: none;*/
 }
 
 .page-inner[data-archived] .todolist .todolist-actions,.page-inner[data-locked] .todolist .todolist-actions,.page-inner[data-deleted] .todolist .todolist-actions {
@@ -5997,7 +5998,6 @@ div.comment.comment-form.edit .form-field {
 }
 
 .todolist .title h4 i {
-    display: none;
     font-size: 16px;
     font-weight: bold;
     line-height: 1;
@@ -6320,7 +6320,7 @@ div.comment.comment-form.edit .form-field {
     padding: 4px 5px;
     text-indent: -999px;
     overflow: hidden;
-    background-image: url(/assets/todo-actions-icon-03198277d00fa322f26853a9fcac697a.png);
+    background-image: url(https://tower.im/assets/todo-actions-icon-03198277d00fa322f26853a9fcac697a.png);
     background-repeat: no-repeat;
     background-size: 60px auto;
 }
@@ -12443,14 +12443,14 @@ html.simple-gallery-active {
     display: inline-block;
     background-position: 0 0;
     vertical-align: middle;
-    background-image: url(/assets/simple-checkbox-abb93bb9f0144350d887b38bea73befe.png);
+    background-image: url(https://tower.im/assets/simple-checkbox-abb93bb9f0144350d887b38bea73befe.png);
     background-repeat: no-repeat;
     background-size: 16px auto;
 }
 
 @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
     .simple-checkbox {
-        background-image: url(/assets/simple-checkbox@2x-301c84d5020be4d0cb151be90c7cfcc1.png);
+        background-image: url(https://tower.im/assets/simple-checkbox-abb93bb9f0144350d887b38bea73befe.png);
         background-size: 16px auto;
     }
 }
@@ -21781,7 +21781,7 @@ div.vjs-loading-spinner .ball8 {
 }
 
 #page-project .project-links a.link-admin-members {
-    background-image: url(/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
+    background-image: url(https://tower.im/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
     background-repeat: no-repeat;
     background-size: 20px auto;
     background-position: 2px 2px;
@@ -21795,7 +21795,7 @@ div.vjs-loading-spinner .ball8 {
 }
 
 #page-project .project-links a.link-admin-settings {
-    background-image: url(/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
+    background-image: url(https://tower.im/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
     background-repeat: no-repeat;
     background-size: 20px auto;
     background-position: 4px -18px;
@@ -21809,7 +21809,7 @@ div.vjs-loading-spinner .ball8 {
 }
 
 #page-project .project-links a.link-recap {
-    background-image: url(/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
+    background-image: url(https://tower.im/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
     background-repeat: no-repeat;
     background-size: 20px auto;
     background-position: 5px -38px;
@@ -21823,7 +21823,7 @@ div.vjs-loading-spinner .ball8 {
 }
 
 #page-project .project-links a.link-stat {
-    background-image: url(/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
+    background-image: url(https://tower.im/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
     background-repeat: no-repeat;
     background-size: 20px auto;
     background-position: 2px -58px;
@@ -22201,7 +22201,7 @@ div.vjs-loading-spinner .ball8 {
 }
 
 #page-projects .projects.grid-view .project.new .badge {
-    background-image: url(/assets/icon-new-project-7c5f3e1da6cb064d9895f54a0fbf59b1.png);
+    background-image: url(https://tower.im/assets/icon-new-project-7c5f3e1da6cb064d9895f54a0fbf59b1.png);
     background-repeat: no-repeat;
     background-size: 43px auto;
     background-position: center bottom;

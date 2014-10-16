@@ -41,6 +41,9 @@ gem 'devise', '~> 3.4.0'
 gem 'haml', '~> 4.0.5'
 gem 'cancan', '~> 1.6.10'
 gem 'font-awesome-rails', '~> 4.2.0.0'
+gem 'kaminari'
+gem 'chosen-rails'
+gem 'gravatar_image_tag'
 
 
 group :development do

@@ -40,20 +40,14 @@ class User
   has_and_belongs_to_many :projects
   has_many :comments
 
-  def join_project(project)
-    projects << project
-  end
-
   def quit_project(project)
-    projects.delete(project)
-  end
-
-  def join_team(team)
-    teams << team
+    project_ids.delete(project) if project.is_a? String and !project_ids.include?(project)
+    projects.delete(project) if project.is_a? Project and !projects.include?(project)
   end
 
   def quit_team(team)
-    teams.delete(team)
+    team_ids.delete(team) if team.is_a? String and !team_ids.include?(team)
+    teams.delete(team) if team.is_a? Team and !teams.include?(team)
   end
 
   def is?(team, role)

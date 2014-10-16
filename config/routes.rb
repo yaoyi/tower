@@ -1,10 +1,32 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   resources :teams do 
     resources :projects
     resources :events
-    resources :users, :path => "members"
+    resources :users, :path => "members" do
+      collection do
+        post 'invite'
+      end
+    end
   end
+  resources :projects do
+    resources :todolists do
+      member do
+        post 'restore'
+      end
+    end
+    resources :todos do
+      member do
+        post 'done'
+        post 'restore'
+      end
+    end
+  end
+  resources :todos do
+    resources :comments
+  end
+  resources :comments
+  resources :users, :path => "members"
   root to: "launchpad#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
