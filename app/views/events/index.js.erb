@@ -1,7 +1,13 @@
-$('.events-day-content').append('<%= escape_javascript(render partial: "events") %>');
-$('#btn-load-more').attr('href', '<%= escape_javascript team_events_path(@team) + ".js?page=#{@next_page}&last_project=#{@events.last.project.id}" %>')
+<%- @chunked_events.each_with_index do |c, index| %>
+  <%- if index == 0 and c[0].to_s == @last_date %>
+    $('.events-day-content').append('<%= escape_javascript(render partial: "events", locals: {events: c[1]}) %>');
+  <%- else %>
+    $('.team-events').append('<%= escape_javascript(render partial: "events_day", locals: {date: c[0], events: c[1]}) %>');
+  <% end  %>
+<% end %>
+$('#btn-load-more').attr('href', '<%= escape_javascript team_events_path(@team) + ".js?page=#{@next_page}&last_project=#{@events.last.project.id}&last_date=#{@events.last.created_at.to_date}" %>')
 <%- if @next_page > @events.total_pages %>
-	$('#btn-load-more').text('没有更多内容了')
-	$('#btn-load-more').attr('href', '#')
+  $('#btn-load-more').text('没有更多内容了')
+  $('#btn-load-more').attr('href', '#')
 <% end  %>
 
