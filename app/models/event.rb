@@ -7,6 +7,7 @@ class Event
 	belongs_to :project
 	belongs_to :eventable, polymorphic: true
 	field :action, type: String
+	paginates_per 2
 
 	default_scope -> { order('created_at DESC') }
 end

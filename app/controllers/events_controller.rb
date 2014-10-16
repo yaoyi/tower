@@ -3,6 +3,6 @@ class EventsController < ApplicationController
 	layout 'team'
 	def index
 		@team = current_user.teams.find(params[:team_id])
-		@events = @team.events
+		@events = @team.events.page(params[:page])
 	end
 end
