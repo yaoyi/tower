@@ -1,0 +1,7 @@
+- @chunked_events.each do |project, events|
+  .events-ancestor
+    %h5.events-ancestor-title
+      %a{:href => "#{team_project_path(project.team, project)}", :target => "_blank", :title => "#{project.name}"} 
+        = project.name
+    - events.each do |event|
+      = render :partial => "events/#{event.eventable_type.downcase}/#{event.action}", :locals => {:event => event}

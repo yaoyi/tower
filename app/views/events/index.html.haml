@@ -11,9 +11,11 @@
         .events-day{"data-absdate" => "2014-10-14T00:00:00+08:00"}
           %h4.events-day-title 今
           .events-day-content
-            - @events.each do |event, index|
+            - @chunked_events.each do |project, events|
               .events-ancestor
                 %h5.events-ancestor-title
-                  %a{:href => "#{team_project_path(@team, event.project)}", :target => "_blank", :title => "#{event.project.name}"} 
-                    = event.project.name
+                  %a{:href => "#{team_project_path(@team, project)}", :target => "_blank", :title => "#{project.name}"} 
+                    = project.name
+              - events.each do |event|
                 = render :partial => "events/#{event.eventable_type.downcase}/#{event.action}", :locals => {:event => event}
+      = link_to '加载更多内容', team_events_path(@team) + '.js?page=2', :id => 'btn-load-more', :remote => true
