@@ -18,4 +18,4 @@
                     = project.name
               - events.each do |event|
                 = render :partial => "events/#{event.eventable_type.downcase}/#{event.action}", :locals => {:event => event}
-      = link_to '加载更多内容', team_events_path(@team) + '.js?page=2', :id => 'btn-load-more', :remote => true
+      = link_to '加载更多内容', team_events_path(@team) + '.js?page=2&project_id=#{@last_project}', :id => 'btn-load-more', :remote => true

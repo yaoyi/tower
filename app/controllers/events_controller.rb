@@ -6,5 +6,6 @@ class EventsController < ApplicationController
 		events = @team.events.page(params[:page])
 		@chunked_events = events.chunk{|e| e.project}
 		@next_page = params[:page].to_i + 1 unless params[:page].blank?
+		@last_project = params[:last_project] || events.last.project.id
 	end
 end

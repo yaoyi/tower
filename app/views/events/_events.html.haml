@@ -1,7 +1,12 @@
-- @chunked_events.each do |project, events|
-  .events-ancestor
-    %h5.events-ancestor-title
-      %a{:href => "#{team_project_path(project.team, project)}", :target => "_blank", :title => "#{project.name}"} 
-        = project.name
-    - events.each do |event|
+- @chunked_events.each_with_index do |c, index|
+  - if index == 0 and c[0].id == @last_project
+    - c[1].each do |event|
       = render :partial => "events/#{event.eventable_type.downcase}/#{event.action}", :locals => {:event => event}
+  - else
+    .events-ancestor
+      %h5.events-ancestor-title
+        %a{:href => "#{team_project_path(c[0].team, c[0])}", :target => "_blank", :title => "#{c[0].name}"} 
+          = c[0].name
+      - c[1].each do |event|
+        = render :partial => "events/#{event.eventable_type.downcase}/#{event.action}", :locals => {:event => event}
+  
