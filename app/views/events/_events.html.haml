@@ -1,5 +1,5 @@
 - @chunked_events.each_with_index do |c, index|
-  - if index == 0 and c[0].id == @last_project
+  - if index == 0 and c[0].id.to_s == @last_project
     - c[1].each do |event|
       = render :partial => "events/#{event.eventable_type.downcase}/#{event.action}", :locals => {:event => event}
   - else

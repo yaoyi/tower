@@ -1,3 +1,7 @@
 $('.events-day-content').append('<%= escape_javascript(render partial: "events") %>');
-$('#btn-load-more').attr('href', '<%= escape_javascript team_events_path(@team) + ".js?page=#{@next_page}&last_project=#{@last_project}" %>')
+$('#btn-load-more').attr('href', '<%= escape_javascript team_events_path(@team) + ".js?page=#{@next_page}&last_project=#{@events.last.project.id}" %>')
+<%- if @next_page > @events.total_pages %>
+	$('#btn-load-more').text('没有更多内容了')
+	$('#btn-load-more').attr('href', '#')
+<% end  %>
 

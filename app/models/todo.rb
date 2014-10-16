@@ -16,10 +16,9 @@ class Todo
 	has_many :comments, as: :commentable
 
 	after_create :event_add
-	after_save :check_due_at
+	after_save :check_state
 
-	def check_due_at
-		binding.pry
+	def check_state
 		event_due if due_at_changed?
 		event_assign if assignee_id_changed?
 	end
