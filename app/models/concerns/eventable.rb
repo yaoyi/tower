@@ -21,7 +21,6 @@ module Eventable
 	private
 	def record
 		return unless action and actor
-		binding.pry
 		Event.create!(
 			team: team,
 			project: project,
