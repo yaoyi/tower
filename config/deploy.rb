@@ -6,6 +6,7 @@ set :repo_url, 'git@github.com:yaoyi/tower.git'
 # Default branch is :master
 # Uncomment the following line to have Capistrano ask which branch to deploy.
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
+set :branch, ENV['rev'] || "master"
 
 # Replace the sample value with the name of your application here:
 set :deploy_to, '/u/apps/tower'
