@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 	def index
 		unless params[:team_id].blank?
 			@team = current_user.teams.find(params[:team_id])
-			@users = @team.members
+			@users = @team.users
 			render 'team'
 		end
 		unless params[:project_id].blank?

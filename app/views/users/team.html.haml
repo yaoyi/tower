@@ -2,7 +2,7 @@
   .group.group-default.ui-droppable{"data-guid" => "0"}
     %ul.members
       = form_tag invite_team_path(@team) do
-        = select_tag :user_ids, options_for_select(User.all.select{|u| !@team.members.include?(u) }.collect {|u| [ u.email, u.id ] }), :class => 'member-chosen-select', :multiple => true , :require => true
+        = select_tag :user_ids, options_for_select(User.all.select{|u| !@team.users.include?(u) }.collect {|u| [ u.email, u.id ] }), :class => 'member-chosen-select', :multiple => true , :require => true
         = submit_tag '添加新成员', :class => 'btn btn-primary'
       - @users.each do |user|
         %li.member

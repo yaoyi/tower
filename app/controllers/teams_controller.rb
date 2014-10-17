@@ -26,7 +26,7 @@ class TeamsController < ApplicationController
 		redirect_to :back if params[:user_ids].blank?
 		@team = current_user.teams.find(params[:id])
 		params['user_ids'].each do |id|
-			@team.member_ids << id unless @team.member_ids.include?(id)
+			@team.user_ids << id unless @team.user_ids.include?(id)
 		end
 		@team.save
 		redirect_to :back
