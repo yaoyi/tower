@@ -46,6 +46,7 @@ gem 'kaminari'
 gem 'chosen-rails'
 gem 'gravatar_image_tag'
 gem 'jquery-turbolinks'
+gem "non-stupid-digest-assets"
 
 
 group :development do
