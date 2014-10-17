@@ -1,4 +1,4 @@
-.event.event-common.event-todolist-del
+.event.event-common.event-todo-recover
   %a.from{:href => "#{team_users_path([current_team, event.actor])}", :target => "_blank"}
     %img.avatar{:alt => "#{event.actor.nickname}", :src => "#{gravatar_image_url(event.actor.email)}"}/
   %i.icon-event
@@ -7,10 +7,11 @@
       %a.event-created-at
         = event.created_at.strftime("%H:%M")
       %span.event-actor
-        %a.link-member{:href => "#{team_users_path([current_team, event.actor])}", :target => "_blank"} event.actor
+        %a.link-member{:href => "#{team_users_path([current_team, event.actor])}", :target => "_blank"}
+          = event.actor.nickname
       %span.event-action
-        删除了任务清单
+        恢复了任务
       %span.event-text
         %span.emphasize
-          %a.todolist-rest{:href => "#{project_todolist_path(event.eventable.project, event.eventable)}", :title => "#{event.eventable.name}"}
-            = event.eventable.name
+          %a.todolist-rest{:href => "#{project_todolist_path(event.eventable.project, event.eventable)}", :title => "#{event.eventable.content}"}
+            = event.eventable.content

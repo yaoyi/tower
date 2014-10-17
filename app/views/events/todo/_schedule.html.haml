@@ -12,13 +12,13 @@
       %span.event-action
         将任务完成时间从
         %span{"data-readable-date" => ""} 
-          - if event.eventable.due_at_old.nil?
+          - if event.extra[:old_date].nil?
             没有截止日期
           - else
-            ＝ event.eventable.due_at_old.strftime("%m月%d日")
+            = event.extra[:old_date].strftime("%m月%d日")
         修改为
         %span
-          = event.eventable.due_at.strftime("%m月%d日")
+          = event.extra[:new_date].strftime("%m月%d日")
       %span.event-text
         %span.emphasize
           %a.todo-rest{"data-stack" => "true", :href => "#{project_todolist_path(event.project, event.eventable)}", :title => ""}

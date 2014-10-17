@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 	before_action :authenticate_user!
+	before_action :set_comment, except: [:index, :create]
+
 	def index
 		
 	end
@@ -12,13 +14,16 @@ class CommentsController < ApplicationController
   	end
 
   	def destroy
-  		@comment = Comment.find(params[:id])
-  		@comment.delete!
+  		@comment.delete
   		redirect_to :back
   	end
 
   	protected
+  	  def set_todo
+		@comment = Comment.find(params[:id])
+		@comment.identify(current_user.id)
+	  end
 	  def comment_params
-	    params.require(:comment).permit(:commentable_type, :commentable_id, :content)
+	    params.require(:comment).permit!
 	  end
 end

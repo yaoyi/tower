@@ -36,14 +36,16 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem "mongoid", "~> 4.0.0"
-gem 'devise', '~> 3.4.0'
-gem 'haml', '~> 4.0.5'
-gem 'cancan', '~> 1.6.10'
-gem 'font-awesome-rails', '~> 4.2.0.0'
+gem "mongoid"
+gem "mongoid-enum"
+gem 'devise'
+gem 'haml'
+gem 'cancan'
+gem 'font-awesome-rails'
 gem 'kaminari'
 gem 'chosen-rails'
 gem 'gravatar_image_tag'
+gem 'jquery-turbolinks'
 
 
 group :development do

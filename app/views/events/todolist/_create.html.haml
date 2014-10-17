@@ -7,7 +7,8 @@
       %a.event-created-at
         = event.created_at.strftime("%H:%M")
       %span.event-actor
-        %a.link-member{:href => "#{team_users_path([current_team, event.actor])}", :target => "_blank"} event.actor
+        %a.link-member{:href => "#{team_users_path([current_team, event.actor])}", :target => "_blank"} 
+          = event.actor.nickname
       %span.event-action
         创建了任务清单
       %span.event-text

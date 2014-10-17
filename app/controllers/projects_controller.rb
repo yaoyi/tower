@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
 	before_action :authenticate_user!
+	before_action :set_project, except: [:index, :create, :new]
 	layout 'team'
+
 	def index
 		@team = current_user.teams.find(params[:team_id])
 		@projects = @team.projects
@@ -8,7 +10,7 @@ class ProjectsController < ApplicationController
 	def create
 		@team = current_user.teams.find(params[:team_id])
 		@project = @team.projects.new(project_params)
-		@project.owner = current_user
+		@project.user = current_user
 		@project.member_ids << current_user.id
 		@project.save
 
@@ -19,14 +21,20 @@ class ProjectsController < ApplicationController
 		@project = @team.projects.build
 	end
 	def update
+
 	end
 	def edit
+
 	end
 	def show
-		@project = current_user.projects.find(params[:id])
+
 	end
 
 	protected
+	def set_project
+		@project = Project.find(params[:id])
+		@project.identify(current_user.id)
+	end
 	def project_params
 		params.require(:project).permit!
 	end

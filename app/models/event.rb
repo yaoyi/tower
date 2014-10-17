@@ -1,13 +1,16 @@
 class Event
-	ACTIONS = %w[add del done undo assign due comment]
 	include Mongoid::Document
 	include Mongoid::Timestamps
+	include Mongoid::Enum
+	enum :action, [:create, :delete, :restore, :complete, :resume, :assign, :schedule, :comment]
+	field :extra, type: Hash
+
 	belongs_to :team
-	belongs_to :actor, class_name: 'User'
 	belongs_to :project
+	belongs_to :actor, class_name: 'User'
 	belongs_to :eventable, polymorphic: true
-	field :action, type: String
-	paginates_per 5
+
+	paginates_per 10
 
 	default_scope -> { order('created_at DESC') }
 end

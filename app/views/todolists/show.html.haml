@@ -7,7 +7,7 @@
       删除了
       %span{"data-visible-to" => "creator,admin"}
         ，你可以选择
-        %a{"data-confirm" => "确定要恢复这个任务清单吗？", :href => "#{restore_project_todolist_path(@project, @todolist)}"} 恢复
+        %a{"data-confirm" => "确定要恢复这个任务清单吗？", :href => "#{restore_project_todolist_path(@todolist.project, @todolist)}"} 恢复
   .topic
     .project-info
       %span

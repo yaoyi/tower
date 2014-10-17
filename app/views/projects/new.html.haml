@@ -1,6 +1,7 @@
 #page-new-project.page-inner{"data-page-name" => "创建新项目"}
   %h3 创建新项目
   = form_for [@team, @project], :html => {:class => 'form form-invite'} do |f| 
+    = f.event_trigger :create, current_user.id
     .form-item
       .form-field
         = f.text_field :name, :autofocus => "", :placeholder => "项目名称"

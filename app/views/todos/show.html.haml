@@ -56,6 +56,7 @@
                 = comment.content
     .comment.comment-form.new
       = form_for [@todo, Comment.new] do |f|
+        = f.event_trigger :create, current_user.id
         = f.hidden_field :commentable_type, :value => 'Todo'
         = f.hidden_field :commentable_id, :value => @todo.id
         %a.avatar-wrap{:href => "#{user_path(current_user)}", :target => "_blank"}

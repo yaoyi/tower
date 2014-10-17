@@ -1,6 +1,8 @@
 class TodosController < ApplicationController
 	before_action :authenticate_user!
+	before_action :set_todo, except: [:index, :create]
 	layout 'team'
+
 	def index
 		
 	end
@@ -16,35 +18,29 @@ class TodosController < ApplicationController
 
 	end
 	def update
-		@todo = Todo.find(params[:id])
 		@todo.update_attributes(todo_params)
 		@todo.save
 		redirect_to project_todo_path(params[:project_id], @todo)
 	end
 	def edit
-		@project = current_user.projects.find(params[:project_id])
-		@todo = Todo.find(params[:id])
+
 	end
 	def show
 		@project = current_user.projects.find(params[:project_id])
-		@todo = Todo.find(params[:id])
 	end
 
 	def destroy
-		todo = Todo.find(params[:id])
-		todo.delete!
+		@todo.soft_delete
 		redirect_to :back
 	end
 
 	def restore
-		todo = Todo.find(params[:id])
-		todo.restore!
+		@todo.restore
 		redirect_to :back
 	end
 
 	def done
-		@todo = Todo.find(params[:id])
-		params[:done] == "false" ? @todo.done! : @todo.undo!
+		params[:done] == "false" ? @todo.complete : @todo.resume
 		respond_to do |format|
 			format.html {
 				redirect_to :back
@@ -56,6 +52,10 @@ class TodosController < ApplicationController
 		
 	end
 	protected
+	def set_todo
+		@todo = Todo.find(params[:id])
+		@todo.identify(current_user.id)
+	end
 	def todo_params
 		params.require(:todo).permit!
 	end

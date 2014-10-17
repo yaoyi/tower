@@ -12,13 +12,13 @@ Rails.application.routes.draw do
   resources :projects do
     resources :todolists do
       member do
-        post 'restore'
+        get 'restore'
       end
     end
     resources :todos do
       member do
         post 'done'
-        post 'restore'
+        get 'restore'
       end
     end
   end
