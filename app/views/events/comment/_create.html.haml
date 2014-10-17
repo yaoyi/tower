@@ -11,7 +11,7 @@
       %span.event-action
         回复了任务
       %span.event-commentable
-        %a.todo-rest{"data-stack" => "true", :href => "#{project_todo_path(event.project, event.eventable)}", :title => "task 1"}
+        %a.todo-rest{"data-stack" => "true", :href => "#{project_todo_path(event.project, event.eventable.commentable)}", :title => "task 1"}
           = event.eventable.commentable.content
     .event-body
       %a.event-text{"data-stack" => "true", :href => "", :title => "ssd"} 
