@@ -51,10 +51,12 @@ gem 'jquery-turbolinks'
 group :development do
 	gem 'pry'
 	gem 'pry-rails'
-    gem 'pry-byebug'
+  gem 'pry-byebug'
 	gem 'better_errors'
 	gem 'binding_of_caller'
 	gem 'meta_request'
+  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano-rails', '~> 1.1'
 end
 
 group :development, :test do
