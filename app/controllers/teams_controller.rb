@@ -21,6 +21,16 @@ class TeamsController < ApplicationController
 		session[:team_id] = params[:id]
 		redirect_to team_projects_path(params[:id])
 	end
+
+	def invite
+		redirect_to :back if params[:user_ids].blank?
+		@team = current_user.teams.find(params[:id])
+		params['user_ids'].each do |id|
+			@team.member_ids << id unless @team.member_ids.include?(id)
+		end
+		@team.save
+		redirect_to :back
+	end
 	
 	protected
 	def team_params

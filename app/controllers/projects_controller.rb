@@ -30,6 +30,16 @@ class ProjectsController < ApplicationController
 
 	end
 
+	def invite
+		redirect_to :back if params[:user_ids].blank?
+		@project = current_user.projects.find(params[:id])
+		params['user_ids'].each do |id|
+			@project.member_ids << id unless @project.member_ids.include?(id)
+		end
+		@project.save
+		redirect_to :back
+	end
+
 	protected
 	def set_project
 		@project = Project.find(params[:id])

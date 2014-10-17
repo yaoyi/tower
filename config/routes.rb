@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :teams do 
+    member do
+      post 'invite'
+    end
     resources :projects
     resources :events
-    resources :users, :path => "members" do
-      collection do
-        post 'invite'
-      end
-    end
+    resources :users, :path => "members"
   end
   resources :projects do
+    member do
+      post 'invite'
+    end
+    resources :users, :path => "members"
     resources :todolists do
       member do
         get 'restore'

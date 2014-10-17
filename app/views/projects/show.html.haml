@@ -6,7 +6,7 @@
       %br
         %span.project-desc
   .project-links
-    %a.link-admin.link-admin-members 成员
+    %a.link-admin.link-admin-members{:href => "#{project_users_path(@project)}"} 成员
     %a.link-admin.link-admin-settings 设置
     %a.link-admin.link-recap 进展
     %a.link-admin.link-stat 统计
