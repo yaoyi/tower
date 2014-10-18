@@ -21,17 +21,17 @@ class Todo
 	def check_attr
 		trigger(:schedule, actor, {:old_date => due_at_was, :new_date => due_at}) if due_at_changed?
 		trigger(:assign) if assignee_id_changed?
+		trigger(:complete) if done_changed? and done
+		trigger(:resume) if done_changed? and !done
 	end
 
 	def complete
 		self.done = true
 		self.save
-		trigger(:complete)
 	end
 
 	def resume
 		self.done = false
 		self.save
-		trigger(:resume)
 	end
 end

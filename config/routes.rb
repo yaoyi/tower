@@ -25,9 +25,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :todos do
-    resources :comments
-  end
+  resources :todos
   resources :comments
   resources :users, :path => "members"
   root to: "launchpad#index"

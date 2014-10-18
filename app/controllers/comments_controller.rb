@@ -14,13 +14,13 @@ class CommentsController < ApplicationController
   	end
 
   	def destroy
-  		@comments.trigger(:delete)
+  		@comment.trigger(:delete)
   		@comment.destroy
   		redirect_to :back
   	end
 
   	protected
-  	  def set_todo
+  	  def set_comment
 		@comment = Comment.find(params[:id])
 		@comment.identify(current_user.id)
 	  end

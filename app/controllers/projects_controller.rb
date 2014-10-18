@@ -8,8 +8,8 @@ class ProjectsController < ApplicationController
 	end
 	def create
 		@project = @team.projects.new(project_params)
-		@project.user = current_user
-		@project.member_ids << current_user.id
+		@project.creator = current_user
+		@project.users << current_user
 		@project.save
 
 		redirect_to team_projects_path(@team)

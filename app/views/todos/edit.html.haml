@@ -5,9 +5,9 @@
         .form-body
           = f.text_area :content, :class => 'todo-content no-border', :placeholder => '新的任务', :style => "overflow: hidden; word-wrap: break-word; resize: none; height: 24px;"
           - unless @todo.assignee.nil?
-            = f.select :assignee, options_for_select(@todo.project.members.collect {|u| [ u.nickname, u.id ] }, [@todo.assignee.nickname,@todo.assignee.id])
+            = f.select :assignee, options_for_select(@todo.project.users.collect {|u| [ u.nickname, u.id ] }, [@todo.assignee.nickname,@todo.assignee.id])
           - else
-            = f.select :assignee, options_for_select(@todo.project.members.collect {|u| [ u.nickname, u.id ] }), {:include_blank => 'choose assignee'}
+            = f.select :assignee, options_for_select(@todo.project.users.collect {|u| [ u.nickname, u.id ] }), {:include_blank => 'choose assignee'}
           = f.date_field :due_at
           .buttons.create-buttons
             %button.btn.btn-primary.btn-create-todo{"data-disable-with" => "正在保存...", :type => "submit"} 保存任务

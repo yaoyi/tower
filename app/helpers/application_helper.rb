@@ -3,7 +3,7 @@ module ApplicationHelper
 	    include ActionView::Helpers::FormTagHelper
 	    include ActionView::Helpers::FormOptionsHelper
 	    def event_trigger(action, actor)
-	   	  action_tag = hidden_field_tag @object_name + '[action]', action
+	      action_tag = hidden_field_tag @object_name + '[action]', action
 	      actor_tag = hidden_field_tag @object_name + '[actor]', actor
 	      return actor_tag + action_tag
 	    end

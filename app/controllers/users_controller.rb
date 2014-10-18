@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 		end
 		unless params[:project_id].blank?
 			@project = current_user.projects.find(params[:project_id])
-			@users = @project.members
+			@users = @project.users
 			render 'project'
 		end
 	end
