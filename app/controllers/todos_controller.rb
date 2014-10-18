@@ -8,8 +8,7 @@ class TodosController < ApplicationController
 	end
 	def create
 		@project = current_user.projects.find(params[:project_id])
-		@todolist = @project.todolists.find(params[:todolist_id])
-		todo = @todolist.todos.new(todo_params)
+		todo = Todo.new(todo_params)
 		todo.user = current_user
 		todo.save
 		redirect_to project_path(@project)

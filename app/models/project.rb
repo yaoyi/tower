@@ -17,7 +17,7 @@ class Project
 
 	def invite(user_ids)
 		user_ids.each do |id|
-			self.member_ids << id unless self.member_ids.include?(BSON::ObjectId(id))
+			self.member_ids << id unless self.member_ids.include?(BSON::ObjectId.from_string(id))
 		end
 		self.save
 	end

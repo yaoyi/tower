@@ -11,7 +11,6 @@ class TodolistsController < ApplicationController
 		@project = current_user.projects.find(params[:project_id])
 		todolist = @project.todolists.new(todolist_params)
 		todolist.user = current_user
-		todolist.identify(current_user.id)
 		todolist.save
 		redirect_to project_path(@project)
 	end

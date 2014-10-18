@@ -15,7 +15,6 @@ RSpec.describe TeamsController, :type => :controller do
 		end
 	end
 	describe "GET show" do
-		include ActionView::Helpers
 		let(:team) { create(:team) }
 		before(:each) do
 			user.teams << team
@@ -32,13 +31,15 @@ RSpec.describe TeamsController, :type => :controller do
 	end
 	describe "POST invite" do
 		let(:member) { create(:user) }
+		let(:team) { create(:team) }
+		before(:each) do
+			user.teams << team
+		end
 		it "should redirect to sign in page if not signed in" do
-			team = user.teams.last
 			post :invite, :id => team.id, :user_ids => [ member.id ]
 			expect(response).to redirect_to(new_user_session_path)
 		end
 		it "should redirect to project index page" do
-			team = user.teams.last
 			request.env["HTTP_REFERER"] = team_projects_path(team)
 			sign_in user
 			post :invite, :id => team.id, :user_ids => [ member.id ]
