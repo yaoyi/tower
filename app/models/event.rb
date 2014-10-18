@@ -3,6 +3,7 @@ class Event
 	include Mongoid::Timestamps
 	include Mongoid::Enum
 	enum :action, [:create, :delete, :restore, :complete, :resume, :assign, :schedule]
+	field :content
 	field :extra, type: Hash
 
 	belongs_to :team

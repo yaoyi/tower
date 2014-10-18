@@ -4,18 +4,18 @@ class ProjectsController < ApplicationController
 	include TeamConcern
 
 	def index
-		@projects = @team.projects
+		@projects = current_team.projects
 	end
 	def create
-		@project = @team.projects.new(project_params)
+		@project = current_team.projects.new(project_params)
 		@project.creator = current_user
-		@project.users << current_user
+		@project.user_ids << current_user.id
 		@project.save
 
-		redirect_to team_projects_path(@team)
+		redirect_to team_projects_path(current_team)
 	end
 	def new
-		@project = @team.projects.build
+		@project = current_team.projects.build
 	end
 	def update
 

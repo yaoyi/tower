@@ -20,13 +20,12 @@ class TodolistsController < ApplicationController
 	end
 
 	def destroy
-		@todolist.trigger(:delete)
 		@todolist.destroy
 		redirect_to :back
 	end
 
 	def restore
-		todolist.restore
+		@todolist.restore
 		redirect_to :back
 	end
 

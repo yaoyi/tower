@@ -7,6 +7,6 @@
           = project.name
         %span.desc{:title => "#{project.desc}"}
           = project.desc
-    %a.project.new{"data-nocache" => "", "data-stack" => "", :href => "#{new_team_project_path(@team)}", :title => "创建新项目"}
+    %a.project.new{"data-nocache" => "", "data-stack" => "", :href => "#{new_team_project_path(current_team)}", :title => "创建新项目"}
       %span.badge
       %span.name 创建新项目

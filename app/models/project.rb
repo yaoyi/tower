@@ -5,9 +5,11 @@ class Project
 	include SoftDelete
 	field :name, type: String
 	field :desc, type: String
-	field :creator_id, type: String
-	belongs_to :team
+
+	alias_attribute :content, :name
 	
+	belongs_to :team
+	belongs_to :creator, class_name: 'User'
 	has_and_belongs_to_many :users
 	has_many :todolists	
 

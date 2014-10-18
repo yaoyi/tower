@@ -10,4 +10,10 @@ class Todolist
 	belongs_to :project
 
 	delegate :team, to: :project
+	alias_attribute :content, :name
+
+	def restore
+		super
+		trigger(:restore)
+	end
 end

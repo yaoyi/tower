@@ -3722,19 +3722,19 @@ div.comment.comment-form.edit .form-field {
     display: none;
 }
 
-.streams .event.event-todo-close {
+.streams .event.event-todo-complete {
     color: #72a17f;
 }
 
-.streams .event.event-todo-close a {
+.streams .event.event-todo-complete a {
     color: #72a17f;
 }
 
-.streams .event.event-todo-close .icon-event {
+.streams .event.event-todo-complete .icon-event {
     background-position: 0 0px;
 }
 
-.streams .event.event-todo-del .icon-event,.streams .event.event-document-del .icon-event,.streams .event.event-message-del .icon-event,.streams .event.event-upload-del .icon-event,.streams .event.event-calendarevent-del .icon-event,.streams .event.event-todolist-del .icon-event {
+.streams .event.event-todo-delete .icon-event,.streams .event.event-document-del .icon-event,.streams .event.event-message-del .icon-event,.streams .event.event-upload-del .icon-event,.streams .event.event-calendarevent-del .icon-event,.streams .event.event-todolist-delete .icon-event {
     background-position: 0 -42px;
 }
 
@@ -3742,7 +3742,7 @@ div.comment.comment-form.edit .form-field {
     background-position: 0 -84px;
 }
 
-.streams .event.event-todo-recover .icon-event,.streams .event.event-message-recover .icon-event,.streams .event.event-upload-recover .icon-event,.streams .event.event-document-recover .icon-event,.streams .event.event-document-revert .icon-event,.streams .event.event-todolist-recover .icon-event {
+.streams .event.event-todo-restore .icon-event,.streams .event.event-message-restore .icon-event,.streams .event.event-upload-recover .icon-event,.streams .event.event-document-recover .icon-event,.streams .event.event-document-revert .icon-event,.streams .event.event-todolist-restore .icon-event {
     background-position: 0 -126px;
 }
 
@@ -3754,7 +3754,7 @@ div.comment.comment-form.edit .form-field {
     background-position: 0 -210px;
 }
 
-.streams .event.event-todo-due_at_changed .icon-event {
+.streams .event.event-todo-schedule .icon-event {
     background-position: 0 -294px;
 }
 
@@ -3766,7 +3766,7 @@ div.comment.comment-form.edit .form-field {
     background-position: 0 -378px;
 }
 
-.streams .event.event-todo-add .icon-event,.streams .event.event-document-add .icon-event,.streams .event.event-message-add .icon-event,.streams .event.event-calendarevent-add .icon-event,.streams .event.event-week-add .icon-event,.streams .event.event-todolist-add .icon-event {
+.streams .event.event-todo-create .icon-event,.streams .event.event-document-add .icon-event,.streams .event.event-message-add .icon-event,.streams .event.event-calendarevent-add .icon-event,.streams .event.event-week-add .icon-event,.streams .event.event-todolist-create .icon-event {
     background-position: 0 -462px;
 }
 

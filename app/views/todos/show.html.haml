@@ -37,7 +37,7 @@
                 %i.fa.fa-trash-o.fa-fw
   .comments.streams
     - @todo.events.each do |event|
-      = render :partial => "events/#{event.eventable_type.downcase}/#{event.action}", :locals => {:event => event}
+      = render_cell :events, :show, :event => event
     - @todo.comments.each do |comment|
       - unless comment.deleted?
         .comment

@@ -63,6 +63,10 @@ GEM
     capybara-email (2.4.0)
       capybara (~> 2.4)
       mail
+    cells (3.11.2)
+      actionpack (>= 3.0)
+      railties (>= 3.0)
+      uber (~> 0.0.8)
     chosen-rails (1.1.1)
       coffee-rails (>= 3.2)
       compass-rails (>= 1.1.2)
@@ -246,6 +250,7 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uber (0.0.9)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -265,6 +270,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.1)
   capybara
   capybara-email
+  cells
   chosen-rails
   coffee-rails (~> 4.0.0)
   database_cleaner

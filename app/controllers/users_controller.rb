@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	include TeamConcern
 	def index
 		unless params[:team_id].blank?
-			@users = @team.users
+			@users = current_team.users
 			render 'team'
 		end
 		unless params[:project_id].blank?

@@ -47,6 +47,7 @@ gem 'chosen-rails'
 gem 'gravatar_image_tag'
 gem 'jquery-turbolinks'
 gem "non-stupid-digest-assets"
+gem 'cells'
 
 
 group :development do

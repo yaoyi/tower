@@ -17,6 +17,9 @@ module Eventable
 		self.extra = extra
 		record
 	end
+	def event_content
+		self.content
+	end
 
 	private
 	def reset
@@ -39,6 +42,7 @@ module Eventable
 			project: project,
 			action: action, 
 			actor: actor,
+			content: event_content,
 			extra: extra,
 			eventable: self
 		)

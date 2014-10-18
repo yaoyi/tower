@@ -6,7 +6,6 @@ class Todo
 	include SoftDelete
 	field :content, type: String
 	field :done, type: Boolean, default: false
-	field :due_at_old, type: DateTime
 	field :due_at, type: DateTime
 
 	belongs_to :assignee, class_name:'User'
@@ -32,5 +31,10 @@ class Todo
 	def resume
 		self.done = false
 		self.save
+	end
+
+	def restore
+		super
+		trigger(:restore)
 	end
 end

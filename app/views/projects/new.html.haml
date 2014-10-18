@@ -1,6 +1,6 @@
 #page-new-project.page-inner{"data-page-name" => "创建新项目"}
   %h3 创建新项目
-  = form_for [@team, @project], :html => {:class => 'form form-invite'} do |f| 
+  = form_for [current_team, @project], :html => {:class => 'form form-invite'} do |f| 
     = f.event_trigger :create, current_user.id
     .form-item
       .form-field
@@ -8,7 +8,7 @@
     .form-item
       .form-field
         = f.text_area :desc, :placeholder => "简单描述项目，便于其他人理解（选填"
-    = f.select :member_ids, options_for_select(@team.users.select {|u| u != current_user }.collect {|u| [ u.nickname, u.id ] }), {}, :class => 'chosen-select', :multiple => true
+    = f.select :user_ids, options_for_select(current_team.users.select {|u| u != current_user }.collect {|u| [ u.nickname, u.id ] }), {}, :class => 'chosen-select', :multiple => true
     .form-buttons
       %button#btn-create-project.btn.btn-primary{"data-disable-with" => "正在创建...", "data-success-text" => "创建成功", :type => "submit"} 创建项目
       %a.btn.btn-x{"data-stack" => "", "data-stack-root" => "", :href => "/teams/156afb3ce0f54fc98c06f3805dcda316/projects"} 取消

@@ -10,10 +10,8 @@ module TeamConcern
     @current_team ||= Team.find(session[:team_id])
   end
   def check_current_team
-    @team = current_team
     if current_team.nil? 
       session[:team_id] = params[:team_id]
-      @team = current_team
       redirect_to root_path if current_team.nil?
     end
   end

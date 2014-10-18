@@ -9,4 +9,8 @@ class Comment
 	belongs_to :user
 	delegate :team, to: :commentable
 	delegate :project, to: :commentable
+
+	def event_content
+		commentable.content || commentable.name
+	end
 end

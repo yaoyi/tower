@@ -14,7 +14,6 @@ class CommentsController < ApplicationController
   	end
 
   	def destroy
-  		@comment.trigger(:delete)
   		@comment.destroy
   		redirect_to :back
   	end

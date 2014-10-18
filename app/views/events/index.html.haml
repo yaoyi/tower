@@ -8,19 +8,5 @@
           %span.icon-arrow.fa.fa-chevron-down
           %input#filter-member{:name => "by_member", :type => "hidden", :value => ""}
       .team-events
-        - @chunked_events.each do |date, chunked_event|
-          .events-day
-            %h4.events-day-title
-              %span.date 
-                = "#{date.month}" + '/' + "#{date.day}"
-              %span.day
-                = "#{date.strftime('%a')}"
-            .events-day-content
-              - chunked_event.chunk {|e| e.project }.each do |project, events|
-                .events-ancestor
-                  %h5.events-ancestor-title
-                    %a{:href => "#{team_project_path(@team, project)}", :target => "_blank", :title => "#{project.name}"} 
-                      = project.name
-                - events.each do |event|
-                  = render :partial => "events/#{event.eventable_type.downcase}/#{event.action}", :locals => {:event => event}
-      = link_to '加载更多内容', team_events_path(@team) + '.js?page=2&project_id=#{@last_project}', :id => 'btn-load-more', :remote => true
+        = render_cell :events, :index, :events => @events
+      = link_to '加载更多内容', team_events_path(current_team) + '.js?page=2&project_id=#{@last_project}', :id => 'btn-load-more', :remote => true
