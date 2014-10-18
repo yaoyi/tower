@@ -13,5 +13,5 @@
         恢复了任务
       %span.event-text
         %span.emphasize
-          %a.todolist-rest{:href => "#{project_todolist_path(event.eventable.project, event.eventable)}", :title => "#{event.eventable.content}"}
+          %a.todolist-rest{:href => "#{project_todolist_path(event.project, event.eventable)}", :title => "#{event.eventable.content}"}
             = event.eventable.content

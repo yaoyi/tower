@@ -19,6 +19,10 @@ module Eventable
 	end
 
 	private
+	def reset
+		self.action = nil
+		self.actor = nil
+	end
 	def record
 		return unless action and actor
 		Event.create!(
@@ -29,5 +33,6 @@ module Eventable
 			extra: extra,
 			eventable: self
 		)
+		reset
 	end
 end

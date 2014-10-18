@@ -13,5 +13,5 @@
         重新打开了任务
       %span.event-text
         %span.emphasize
-          %a.todo-rest{"data-stack" => "true", :href => "#{project_todolist_path(event.eventable.project, event.eventable)}", :title => ""}
+          %a.todo-rest{"data-stack" => "true", :href => "#{project_todolist_path(event.project, event.eventable)}", :title => ""}
             = event.eventable.content

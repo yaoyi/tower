@@ -20,7 +20,8 @@ class TodolistsController < ApplicationController
 	end
 
 	def destroy
-		@todolist.soft_delete
+		@todolist.trigger(:delete)
+		@todolist.destroy
 		redirect_to :back
 	end
 

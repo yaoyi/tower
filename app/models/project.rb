@@ -2,6 +2,7 @@ class Project
 	include Mongoid::Document
 	include Mongoid::Timestamps
 	include Eventable
+	include SoftDelete
 	field :name, type: String
 	field :desc, type: String
 	

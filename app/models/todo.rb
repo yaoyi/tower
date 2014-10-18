@@ -2,11 +2,11 @@ class Todo
 	include Mongoid::Document
 	include Mongoid::Timestamps
 	include Eventable
+	include SoftDelete
 	field :content, type: String
 	field :done, type: Boolean, default: false
 	field :due_at_old, type: DateTime
 	field :due_at, type: DateTime
-	field :deleted_at, type: DateTime
 
 	belongs_to :assignee, class_name:'User'
 	belongs_to :user
@@ -33,21 +33,5 @@ class Todo
 		self.done = false
 		self.save
 		trigger(:resume)
-	end
-
-	def deleted?
-		!self.deleted_at.nil?
-	end
-
-	def soft_delete
-		self.deleted_at = Time.now
-		self.save
-		trigger(:delete)
-	end
-
-	def restore
-		self.deleted_at = nil
-		self.save
-		trigger(:restore)
 	end
 end

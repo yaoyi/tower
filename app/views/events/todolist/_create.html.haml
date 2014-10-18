@@ -13,5 +13,5 @@
         创建了任务清单
       %span.event-text
         %span.emphasize
-          %a.todolist-rest{:href => "#{project_todolist_path(event.eventable.project, event.eventable)}", :title => "#{event.eventable.name}"}
+          %a.todolist-rest{:href => "#{project_todolist_path(event.project, event.eventable)}", :title => "#{event.eventable.name}"}
             = event.eventable.name

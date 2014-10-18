@@ -29,7 +29,8 @@ class TodosController < ApplicationController
 	end
 
 	def destroy
-		@todo.soft_delete
+		@todo.trigger(:delete)
+		@todo.destroy
 		redirect_to :back
 	end
 
