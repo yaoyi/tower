@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 	end
 	def create
 		@project = current_team.projects.new(project_params)
-		@project.creator = current_user
+		@project.creator_id = current_user.id
 		@project.user_ids << current_user.id
 		@project.save
 
