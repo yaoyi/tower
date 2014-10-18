@@ -8,20 +8,20 @@
   %body
     .header
       %h1.logo
-        %a{"data-stack" => "", "data-stack-root" => "", :href => "#{team_path(current_team)}", :title => "首页"} Tower
+        %a{:href => "#{team_path(current_team)}", :title => "首页"} Tower
       %ul.nav
         %li#nav-project.active
-          %a{"data-stack" => "", "data-stack-root" => "", :href => "#{team_projects_path(current_team)}"} 项目
+          %a{:href => "#{team_projects_path(current_team)}"} 项目
         %li#nav-events
-          %a{"data-stack" => "", "data-stack-root" => "", :href => "#{team_events_path(current_team)}"} 动态
-        %li#nav-week
-          %a{"data-stack" => "", "data-stack-root" => "", :href => "weekly_reports"} 周报
-        %li#nav-calendar
-          %a{"data-stack" => "", "data-stack-fluid" => "", "data-stack-root" => "", :href => "calendars"} 日历
+          %a{:href => "#{team_events_path(current_team)}"} 动态
+        / %li#nav-week
+        /   %a{:href => ""} 周报
+        / %li#nav-calendar
+        /   %a{:href => ""} 日历
         %li#nav-members
-          %a{"data-stack" => "", "data-stack-root" => "", :href => "#{team_users_path(current_team)}"} 团队
-        %li#nav-me
-          %a{"data-stack" => "", "data-stack-root" => "", :href => "/members/4ff03803694447f89160efd29f628968?me=1"} 我自己
+          %a{:href => "#{team_users_path(current_team)}"} 团队
+        / %li#nav-me
+        /   %a{:href => "/members/4ff03803694447f89160efd29f628968?me=1"} 我自己
       .command-bar
         .search-wrap
           = link_to destroy_user_session_path, method: :delete do

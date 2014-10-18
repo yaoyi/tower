@@ -1,7 +1,7 @@
 class TodosController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_todo, except: [:index, :create]
-	layout 'team'
+	include TeamConcern
 
 	def index
 		

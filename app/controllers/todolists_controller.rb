@@ -1,7 +1,7 @@
 class TodolistsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_todolist, except: [:index, :create]
-	layout 'team'
+	include TeamConcern
 
 	def index
 

@@ -9,7 +9,11 @@ module ApplicationHelper
 	    end
   	end
 	def current_team
-		team_id = session[:team_id]
-		@current_team ||= Team.find(team_id)
+		@current_team ||= Team.find(session[:team_id])
+	end
+	def current_team=(team)
+		team = Team.find(team) if team.is_a? String
+		session[:team_id] = team.id
+		@current_team = team
 	end
 end
