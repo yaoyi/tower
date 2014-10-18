@@ -38,7 +38,6 @@ class User
   field :nickname, type: String
   has_and_belongs_to_many :teams
   has_and_belongs_to_many :projects
-  has_many :comments
 
   def quit_project(project)
     project_ids.delete(project) if project.is_a? String and !project_ids.include?(project)

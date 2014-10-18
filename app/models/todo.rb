@@ -2,6 +2,7 @@ class Todo
 	include Mongoid::Document
 	include Mongoid::Timestamps
 	include Eventable
+	include Commentable
 	include SoftDelete
 	field :content, type: String
 	field :done, type: Boolean, default: false
@@ -13,8 +14,6 @@ class Todo
 	belongs_to :todolist
 
 	delegate :team, :project, to: :todolist
-	
-	has_many :comments, as: :commentable
 
 	after_save :check_attr
 
