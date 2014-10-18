@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
-	layout "team"
+	include TeamConcern
 	def index
 		unless params[:team_id].blank?
-			@team = current_user.teams.find(params[:team_id])
 			@users = @team.users
 			render 'team'
 		end

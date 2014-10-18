@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+	include ApplicationHelper
 	before_action :authenticate_user!
 	layout 'team'
 	def index
@@ -10,7 +11,7 @@ class TeamsController < ApplicationController
     	redirect_to root_path
 	end
 	def show
-		current_team = params[:id]
+		session[:team_id] = params[:id]
 		redirect_to team_projects_path(params[:id])
 	end
 	def invite
