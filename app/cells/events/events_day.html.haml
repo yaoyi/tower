@@ -6,4 +6,4 @@
       = "#{@date.strftime('%a')}"
   .events-day-content
     - @events.each do |project, events|
-      = render_cell :events, :events_project, :project => project, :events => events
+      = render_cell :events, :events_project_with_header, :project => project, :events => events

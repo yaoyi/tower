@@ -1,7 +1,0 @@
-- events.chunk {|e| e.project }.each_with_index do |c, index|
-  - if index == 0 and c[0].id.to_s == @last_project
-    - c[1].each do |event|
-      = render_cell :events, :show, :event => event
-  - else
-    = render_cell :events, :events_project, :project => c[0], :events => c[1]
-    

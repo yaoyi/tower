@@ -4,24 +4,30 @@ class EventsCell < Cell::Rails
   def index(args)
     events = args[:events]
   	@events = events.chunk{|e| e.created_at.to_date}
+    render unless events.empty?
+  end
+
+  def show(args)
+    @event = args[:event]
+    @template = @event.eventable_type.downcase + '_' + @event.action.to_s
     render
   end
 
   def events_day(args)
-  	@date = args[:date]
-  	@events = args[:events].chunk {|e| e.project }
+    events = args[:events]
+    @date = events.first.created_at.to_date
+  	@events = events.chunk {|e| e.project }
+    render 
+  end
+
+  def events_project_with_header(args)
+    @events = args[:events]
+    @project = @events.first.project
     render
   end
 
   def events_project(args)
-  	@project = args[:project]
-   	@events = args[:events]
-    render
-  end
-
-  def show(args)
-  	@event = args[:event]
-  	@template = @event.eventable_type.downcase + '_' + @event.action.to_s
+    @events = args[:events]
     render
   end
 
