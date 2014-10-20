@@ -1,0 +1,17 @@
+- @events.chunk {|e| e.created_at.to_date.to_s }.each do |date, events|
+  - if date != params[:_d]
+    $('.team-events').append("#{escape_javascript(render_cell :events, :events_day, :events => events)}");
+  - else
+    - events.chunk {|e| e.project.id.to_s }.each do |project, _events|
+      - if project == params[:_pj]
+        $('.events-ancestor').last().append("#{escape_javascript(render_cell :events, :events_project, :events => _events)}");
+      - else
+        $('.events-day-content').last().append("#{escape_javascript(render_cell :events, :events_project_with_header, :events => _events)}");
+      - params[:_pj] = events.last.project.id.to_s
+    - params[:_d] = events.last.created_at.to_date.to_s
+
+$('#btn-load-more').attr('href', "#{escape_javascript  @next_page_path}")
+- if @events.last_page?
+  $('#btn-load-more').text('没有更多内容了')
+  $('#btn-load-more').attr('href', '#')
+
