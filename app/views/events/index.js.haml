@@ -13,5 +13,5 @@
 $('#btn-load-more').attr('href', "#{escape_javascript  @next_page_path}")
 - if @events.last_page?
   $('#btn-load-more').text('没有更多内容了')
-  $('#btn-load-more').attr('href', '#')
+  $('#btn-load-more').attr('href', 'javascript:void(0)')
 
