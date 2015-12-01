@@ -16,9 +16,6 @@
             .form-field
               = f.password_field :password, :class => 'password', :placeholder => "设置密码，至少包含 6 位字符"
           .form-item.form-buttons
-            %p.agree
-              点击注册表示你已阅读并同意
-              %a{:href => "/agreement", :target => "_blank"} 《Tower 服务条款》
             = f.submit "注册", :id => "btn-signup", :class => "btn btn-primary btn-large btn-submit"
             .desc
               %p.left
@@ -26,4 +23,4 @@
                 %span
                   %a{:href => "/users/sign_in"} 直接登录 →
       .ft
-        © 彩程设计
+        © yaoyi

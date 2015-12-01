@@ -1,8 +1,8 @@
-- @events.chunk {|e| e.created_at.to_date.to_s }.each do |date, events|
+- @events.group_by(&:created_date).each do |date, events|
   - if date != params[:_d]
     $('.team-events').append("#{escape_javascript(render_cell :events, :events_day, :events => events)}");
   - else
-    - events.chunk {|e| e.project.id.to_s }.each do |project, _events|
+    - events.group_by(&:project_id).each do |project, _events|
       - if project == params[:_pj]
         $('.events-ancestor').last().append("#{escape_javascript(render_cell :events, :events_project, :events => _events)}");
       - else

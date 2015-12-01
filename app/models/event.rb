@@ -14,4 +14,8 @@ class Event
 	paginates_per 5
 
 	default_scope -> { order('created_at DESC') }
+
+	def created_date
+		created_at.to_date
+	end
 end
