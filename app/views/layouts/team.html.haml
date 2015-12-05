@@ -29,11 +29,11 @@
         .search-wrap
           %a.link-search{:href => "javascript:;", :title => "search"}
             %span.icon-search
-          %form#form-search.form{:action => "/teams/156afb3ce0f54fc98c06f3805dcda316/search", :method => "get"}
+          %form#form-search.form{:action => "", :method => "get"}
             %input#txt-search.keyword.no-border{:name => "keyword", :placeholder => "Search", :type => "text"}
         .notification-info
-          %a.link{"data-stack" => "", "data-stack-root" => "", :href => "/teams/156afb3ce0f54fc98c06f3805dcda316/notifications/"} Notification
-          %a#notification-count.label.unread{"data-unread-count" => "0", "data-url" => "/teams/156afb3ce0f54fc98c06f3805dcda316/notifications/unread_counts", :href => "javascript:;", :title => "新的通知"}
+          %a.link{"data-stack" => "", "data-stack-root" => "", :href => "#"} Notification
+          %a#notification-count.label.unread{"data-unread-count" => "0", "data-url" => "#", :href => "javascript:;", :title => "New Notifications"}
             %span.fa.fa-bell-o.bell
             %span.num 1
           .noti-pop

@@ -1,12 +1,12 @@
 .container.workspace.simple-stack.simple-stack-transition
   .page.page-root.simple-pjax
     #page-events.page-inner{"data-page-name" => "动态", "data-since" => "2014-10-14 12:56:29 UTC"}
-      .filters
-        %span.filters-title filter timeline
-        .mcw-pop-select.filter-member
-          %span.selected-text all memember
-          %span.icon-arrow.fa.fa-chevron-down
-          %input#filter-member{:name => "by_member", :type => "hidden", :value => ""}
+      -# .filters
+      -#   %span.filters-title filter timeline
+      -#   .mcw-pop-select.filter-member
+      -#     %span.selected-text all memember
+      -#     %span.icon-arrow.fa.fa-chevron-down
+      -#     %input#filter-member{:name => "by_member", :type => "hidden", :value => ""}
       .team-events
         = render_cell :events, :index, :events => @events
       = link_to 'load more', @next_page_path, :remote => true, :id => 'btn-load-more'
