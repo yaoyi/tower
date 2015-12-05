@@ -78,4 +78,4 @@
                       = f.select :assignee, options_for_select(@project.users.collect {|u| [ u.nickname, u.id ] }), {:include_blank => 'choose assignee'}
                       = f.date_field :due_at
                       .buttons.create-buttons
-                        %button.btn.btn-primary.btn-create-todo{"data-disable-with" => saving", :type => "submit"} new task
+                        %button.btn.btn-primary.btn-create-todo{"data-disable-with" => "saving", :type => "submit"} new task
