@@ -2,10 +2,10 @@
   #page-launchpad.page
     .topbar
       %h1.logo
-        %a{:href => "/", :title => "返回"} tower.im
+        %a{:href => "/", :title => "Back"} tower
       .account-info
         %span.welcome hi, super
-        %a{"data-method" => "DELETE", :href => "/users/sign_out", :rel => "nofollow"} 退出
+        %a{"data-method" => "DELETE", :href => "/users/sign_out", :rel => "nofollow"} Logout
     %ul.teams
       - @teams.each do |team|
         %li
@@ -16,17 +16,17 @@
       %li.new
         = form_for Team.new, :html => {:class => "form-horizontal"} do |f|
           = f.text_field :name, :style => "float: left;width: 200px;margin: 3px;"
-          = f.submit '新的团队', :class => "btn btn-primary"
+          = f.submit 'New team', :class => "btn btn-primary"
     .footer
       ©
       %a{:href => "yaoyi.github.io", :target => "_blank"} yaoyi
     %script#tpl-new-team{:type => "text/html"}
       .new-team
         %form.form.form-new-team{:action => "/users/create_team/", "data-remote" => "true", :method => "post"}
-          %h4.simple-dialog-title 新团队名称
+          %h4.simple-dialog-title Team name
           .form-item
             .form-field
-              %input#txt-team{:autofocus => "", "data-validate" => "required", "data-validate-msg" => "请填写团队或者公司的名称", :name => "team", :placeholder => "例如：iPhone 6 设计团队", :type => "text"}/
+              %input#txt-team{:autofocus => "", "data-validate" => "required", "data-validate-msg" => "team name", :name => "team", :placeholder => "例如：iPhone 6 design team", :type => "text"}/
           .form-item.form-btns
-            %button#btn-create-team.btn.btn-primary.btn-large{"data-disable-with" => "正在创建...", "data-success-text" => "创建成功", :type => "submit"} 创建团队
-            %a#btn-cancel-create-team.btn.btn-x{:href => "javascript:;"} 取消
+            %button#btn-create-team.btn.btn-primary.btn-large{"data-disable-with" => "saving", "data-success-text" => "", :type => "submit"} Create team
+            %a#btn-cancel-create-team.btn.btn-x{:href => "javascript:;"} cancel

@@ -1,17 +1,16 @@
 #page-todo.page-inner
   - if @todo.deleted?
     .page-tip.resource-deleted
-      这个任务已经于
-      %span{:title => "2014年10月16日02:20:40"}
-        = @todo.deleted_at.strftime('%y年%m月%d日')
-      删除了
+      this task has been deleted on
+      %span{:title => ""}
+        = @todo.deleted_at.strftime('%Y-%m-%d日')
       %span{"data-visible-to" => "creator,admin"}
-        ，你可以选择
-        %a{"data-confirm" => "确定要恢复这条任务吗？", :href => "#{restore_project_todo_path(@project, @todo)}"} 恢复
+        you can
+        %a{"data-confirm" => "Are you sure?", :href => "#{restore_project_todo_path(@project, @todo)}"} restore
   .topic
     .project-info
       %span
-        %a{"data-stack" => "true", "data-stack-replace" => "true", :href => "#{project_todolist_path(@project, @todo.todolist)}"} 
+        %a{"data-stack" => "true", "data-stack-replace" => "true", :href => "#{project_todolist_path(@project, @todo.todolist)}"}
           = @todo.todolist.name
     .todolist
       %ul.todos
@@ -23,15 +22,15 @@
               %span.raw
                 = @todo.content
               %span.content-non-linkable
-                %span.todo-rest{:title => "task 1"} 
+                %span.todo-rest{:title => "task 1"}
                   = @todo.content
               %span.content-linkable
-                %a.todo-rest{"data-stack" => "true", :href => "/projects/80c38953262f47d394e1dc22302a1e82/todos/8c56fa15fe5d45bf922c8a6983aed13b", :title => "task 1"} 
+                %a.todo-rest{"data-stack" => "true", :href => "#", :title => ""}
                   = @todo.content
               %a.label.todo-assign-due.delay
                 %span.assignee
                   = @todo.assignee.nickname unless @todo.assignee.nil?
-                %span.due 
+                %span.due
                   = @todo.due_at.strftime('%y-%m-%d') unless @todo.due_at.nil?
               = link_to(project_todo_path(@project, @todo), data: { confirm: "Are you sure?" }, :method => :delete) do
                 %i.fa.fa-trash-o.fa-fw
@@ -44,7 +43,7 @@
           %a.avatar-wrap{:href => "#{user_path(comment.user)}", :target => "_blank"}
             %img.avatar{:height => "50", :src => "#{gravatar_image_url(comment.user.email)}", :width => "50"}
           .comment-actions.actions
-            %a.del{"data-confirm" => "确定要删除这条回复吗？", "data-method" => "delete", :href => "#{comment_path(comment)}"} 删除
+            %a.del{"data-confirm" => "Are you sure?", "data-method" => "delete", :href => "#{comment_path(comment)}"} delete
           .comment-main
             .info
               %a.author{"data-stack" => "", "data-stack-root" => "", :href => "#{user_path(comment.user)}"}
@@ -66,9 +65,7 @@
             .form-field
               = f.text_area :content, :class => "txt-new-comment comment-content",:tabindex => "1"
           .form-buttons
-            = f.submit "发表评论", :class => "btn btn-primary btn-create-comment" 
+            = f.submit "Comment", :class => "btn btn-primary btn-create-comment"
   .detail-actions
     .item
-      %a.detail-action.detail-action-edit{:href => "#{edit_project_todo_path}"} 编辑
-
-
+      %a.detail-action.detail-action-edit{:href => "#{edit_project_todo_path}"} edit

@@ -2,43 +2,43 @@
   - if @todolist.deleted?
     .page-tip.resource-deleted
       这个任务清单已经于
-      %span{:title => "2014年10月16日02:20:40"}
-        = @todolist.deleted_at.strftime('%y年%m月%d日')
-      删除了
+      this task list has been deleted on
+      %span{:title => ""}
+        = @todolist.deleted_at.strftime('%Y-%m-%d')
       %span{"data-visible-to" => "creator,admin"}
-        ，你可以选择
-        %a{"data-confirm" => "确定要恢复这个任务清单吗？", :href => "#{restore_project_todolist_path(@todolist.project, @todolist)}"} 恢复
+        , you can
+        %a{"data-confirm" => "Are you sure?", :href => "#{restore_project_todolist_path(@todolist.project, @todolist)}"} restore
   .topic
     .project-info
       %span
-        项目：
-        %a{"data-stack" => "true", "data-stack-replace" => "true", "data-stack-root" => "true", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d"} hello
+        Project:
+        %a{"data-stack" => "true", "data-stack-replace" => "true", "data-stack-root" => "true", :href => "#"}
       %span
-        %a{"data-stack" => "true", "data-stack-replace" => "true", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/lists/84d56251ac7b46d08e927f09b860451c/show"} vvv
+        %a{"data-stack" => "true", "data-stack-replace" => "true", :href => "#"}
     .todolist
       %ul.todos
         %li.todo{"data-creator-guid" => "da5118d270264f20af185531f2135a01", "data-guid" => "171d2fa79d4046b487567e7a3857d313", "data-project-guid" => "96aa9d0d6f0746c2b5d91833a8b5419d", "data-project-name" => "hello", "data-sequence-mine" => "0.0", "data-sort" => "1024.0", "data-sort-url" => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/todos/171d2fa79d4046b487567e7a3857d313/reorder", "data-updated-at" => "1413397240"}
           .todo-actions.actions
             .inr
-              %a.run{"data-loading" => "true", "data-method" => "post", "data-remote" => "true", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/todos/171d2fa79d4046b487567e7a3857d313/running", :title => "标记成正在进行中"} 执行
-              %a.pause{"data-loading" => "true", "data-method" => "post", "data-remote" => "true", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/todos/171d2fa79d4046b487567e7a3857d313/pause", :title => "暂停"} 暂停
-              %a.edit{"data-request-members" => "96aa9d0d6f0746c2b5d91833a8b5419d", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/todos/171d2fa79d4046b487567e7a3857d313/edit", :title => "编辑"} 编辑
-              %a.del{"data-confirm" => "确定要删除这条任务吗？", "data-method" => "post", "data-remote" => "true", "data-visible-to" => "creator,admin", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/todos/171d2fa79d4046b487567e7a3857d313/destroy", :title => "删除"} 删除
+              %a.run{"data-loading" => "true", "data-method" => "post", "data-remote" => "true", :href => "#", :title => ""} run
+              %a.pause{"data-loading" => "true", "data-method" => "post", "data-remote" => "true", :href => "#", :title => "pause"} pause
+              %a.edit{"data-request-members" => "96aa9d0d6f0746c2b5d91833a8b5419d", :href => "#", :title => "edit"} edit
+              %a.del{"data-confirm" => "Are you sure?", "data-method" => "post", "data-remote" => "true", "data-visible-to" => "creator,admin", :href => "#", :title => "#"} delete
           .todo-wrap
             .simple-checkbox.disabled
               %input{:disabled => "", :name => "todo-done", :style => "display: none;", :type => "checkbox"}/
             %span.todo-content
-              %span.raw 111
+              %span.raw
               %span.content-non-linkable
-                %span.todo-rest{:title => "111"} 111
+                %span.todo-rest{:title => "111"}
               %span.content-linkable
-                %a.todo-rest{"data-stack" => "true", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/todos/171d2fa79d4046b487567e7a3857d313", :title => "111"} 111
-            %a.label.todo-assign-due.no-assign.disabled{"data-request-members" => "96aa9d0d6f0746c2b5d91833a8b5419d", :href => "javascript:;"} 未指派
-            %a.label.todo-proj{"data-stack" => "true", "data-stack-root" => "true", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d", :title => "hello - vvv"} hello - vvv
+                %a.todo-rest{"data-stack" => "true", :href => "#", :title => "111"}
+            %a.label.todo-assign-due.no-assign.disabled{"data-request-members" => "96aa9d0d6f0746c2b5d91833a8b5419d", :href => "javascript:;"} no assignee
+            %a.label.todo-proj{"data-stack" => "true", "data-stack-root" => "true", :href => "#", :title => "hello - vvv"}
   .comments.streams
-    #event-7820399.event.event-common.event-todo-add{"data-ancestor-guid" => "96aa9d0d6f0746c2b5d91833a8b5419d", "data-ancestor-name" => "hello", "data-ancestor-url" => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d"}
+    #event-7820399.event.event-common.event-todo-add{"data-ancestor-guid" => "96aa9d0d6f0746c2b5d91833a8b5419d", "data-ancestor-name" => "hello", "data-ancestor-url" => ""}
       %a.from{:href => "/members/da5118d270264f20af185531f2135a01", :target => "_blank"}
-        %img.avatar{:alt => "admin", :src => "https://tower.im/assets/default_avatars/winter.jpg"}/
+        %img.avatar{:alt => "admin", :src => "https://tower/assets/default_avatars/winter.jpg"}/
       %i.icon-event
       .event-main
         .event-head
@@ -46,13 +46,13 @@
           %span.event-actor
             %a.link-member{:href => "/members/da5118d270264f20af185531f2135a01", :target => "_blank"} admin
           %span.event-action
-            创建了任务
+            created the task
           %span.event-text
             %span.emphasize
               %a.todo-rest{"data-stack" => "true", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/todos/171d2fa79d4046b487567e7a3857d313", :title => "111"} 111
     #event-7820400.event.event-common.event-todo-del{"data-ancestor-guid" => "96aa9d0d6f0746c2b5d91833a8b5419d", "data-ancestor-name" => "hello", "data-ancestor-url" => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d"}
       %a.from{:href => "/members/da5118d270264f20af185531f2135a01", :target => "_blank"}
-        %img.avatar{:alt => "admin", :src => "https://tower.im/assets/default_avatars/winter.jpg"}/
+        %img.avatar{:alt => "admin", :src => "https://tower/assets/default_avatars/winter.jpg"}/
       %i.icon-event
       .event-main
         .event-head
@@ -60,7 +60,7 @@
           %span.event-actor
             %a.link-member{:href => "/members/da5118d270264f20af185531f2135a01", :target => "_blank"} admin
           %span.event-action
-            删除了任务
+            deleted the task
           %span.event-text
             %span.emphasize
               %a.todo-rest{"data-stack" => "true", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/todos/171d2fa79d4046b487567e7a3857d313", :title => "111"} 111
@@ -71,19 +71,19 @@
         .comment-main
           .form-item
             .form-field
-              .fake-textarea{"data-droppable" => ""} 点击发表评论
+              .fake-textarea{"data-droppable" => ""} click to comment
               %textarea#txt-new-comment.comment-content.hide{:autofocus => "", "data-autosave" => "new-comment-content", "data-mention-group" => "96aa9d0d6f0746c2b5d91833a8b5419d", "data-mention-type" => "project", "data-validate" => "custom", :name => "comment_content", :tabindex => "1"}
           .form-item.notify.hide
             .notify-title
-              .notify-title-title 发送通知给：
+              .notify-title-title send notification to
               .notify-title-summary.hide
                 %span.receiver
                 %span.change-notify
                   [
-                  %a.link-change-notify{:href => "javascript:;"} 更改
+                  %a.link-change-notify{:href => "javascript:;"} change
                   ]
               .notify-title-select
-                %span.group-select{"data-subgroup" => "-1", :unselectable => "on"} 所有人
+                %span.group-select{"data-subgroup" => "-1", :unselectable => "on"} all
             .form-field
               %ul.member-list
                 %li
@@ -95,32 +95,32 @@
                     %input{"data-subgroup" => "0", :tabindex => "-1", :type => "checkbox", :value => "e0f43d2df23a4b7ab76877d4f4ff4d5c"}
                       %span{:title => "super"} super
           .hide.form-buttons
-            %button.btn.btn-primary.btn-create-comment{"data-disable-with" => "正在发送...", :tabindex => "1", :type => "submit"} 发表评论
-            %button.btn.btn-x.btn-cancel-create-comment{:tabindex => "2", :type => "button"} 取消
+            %button.btn.btn-primary.btn-create-comment{"data-disable-with" => "正在发送...", :tabindex => "1", :type => "submit"} comment
+            %button.btn.btn-x.btn-cancel-create-comment{:tabindex => "2", :type => "button"} cancel
   %script#tpl-fold-comment{:type => "text/html"}
     #event-fold.event.event-common.event-fold-comment
       %i.icon-event
       .event-main
         .event-head
-          %a.link-fold-comment{:href => "javascript:;"} 查看更早的 {{ comments_num }} 条讨论
+          %a.link-fold-comment{:href => "javascript:;"} more {{ comments_num }} comments
   .detail-star-action
     %a.detail-action.detail-action-star.stared{"data-itemid" => "3831482", "data-itemtype" => "Todo", "data-loading" => "true", "data-method" => "post", "data-remote" => "true", :href => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/todos/171d2fa79d4046b487567e7a3857d313/star?muid=171d2fa79d4046b487567e7a3857d313", :rel => "nofollow", :title => "取消星标"} 取消星标
   .detail-actions
     .item
-      %a.detail-action.detail-action-edit{"data-request-members" => "96aa9d0d6f0746c2b5d91833a8b5419d", :href => "javascript:;"} 编辑
+      %a.detail-action.detail-action-edit{"data-request-members" => "96aa9d0d6f0746c2b5d91833a8b5419d", :href => "javascript:;"} edit
     .item.detail-action-move{"data-visible-to" => "creator,admin"}
-      %a.detail-action{:href => "javascript:;"} 移动
+      %a.detail-action{:href => "javascript:;"} move
       .confirm
         %form.form.form-move{:action => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/todos/171d2fa79d4046b487567e7a3857d313/move", "data-remote" => "", :method => "post"}
-          %p.title 移动任务到项目
+          %p.title move tasks to project
           %p
             %select.choose-projects.loading{"data-project" => "96aa9d0d6f0746c2b5d91833a8b5419d", :disabled => "", :name => "tpuid"}
-              %option{:disabled => ""} 正在加载项目...
+              %option{:disabled => ""} loading project...
           %p
-            %button.btn.btn-mini{"data-disable-with" => "正在移动...", :disabled => "", :type => "submit"} 移动
-            %button.btn.btn-x.cancel{:type => "button"} 取消
+            %button.btn.btn-mini{"data-disable-with" => "正在移动...", :disabled => "", :type => "submit"} move
+            %button.btn.btn-x.cancel{:type => "button"} cancel
     .item{"data-visible-to" => "creator,admin"}
-      %a.detail-action.detail-action-del{:href => "javascript:;"} 删除
+      %a.detail-action.detail-action-del{:href => "javascript:;"} cancel
   %script#tpl-todo-form{:type => "text/html"}
     %li.todo-form
       %form.form{"data-remote" => "true", :method => "post"}
@@ -128,25 +128,25 @@
           %input{:disabled => "", :name => "todo-done", :type => "checkbox"}/
           %textarea.todo-content.no-border{"data-validate" => "custom", "data-validate-msg" => "", :name => "todo_content", :placeholder => "新的任务"}
           %a.todo-label{:href => "javascript:;"}
-            %span.assignee 未指派
+            %span.assignee no assignee
             ·
-            %span.due 没有截止时间
+            %span.due no deadline
         .buttons.create-buttons
-          %button.btn.btn-primary.btn-create-todo{"data-disable-with" => "正在保存...", :type => "submit"} 添加任务
-          %a.btn-cancel-todo{:href => "javascript:;"} 取消
+          %button.btn.btn-primary.btn-create-todo{"data-disable-with" => "正在保存...", :type => "submit"} add task
+          %a.btn-cancel-todo{:href => "javascript:;"} cancel
         .buttons.edit-buttons
-          %button.btn.btn-primary.btn-update-todo{"data-disable-with" => "正在保存...", :type => "submit"} 保存修改
-          %a.btn-cancel-update-todo{:href => "javascript:;"} 取消
+          %button.btn.btn-primary.btn-update-todo{"data-disable-with" => "正在保存...", :type => "submit"} save changes
+          %a.btn-cancel-update-todo{:href => "javascript:;"} cancel
         %input.hidden-assignee{:name => "assignee_guid", :type => "hidden", :value => "-1"}/
         %input.hidden-due-date{:name => "due_at", :type => "hidden", :value => ""}/
   %script#tpl-todo-popover{:type => "text/html"}
     .todo-popover
       .select-assignee
-        %h3 将任务指派给
+        %h3 assign the task to
         .assignee-wrapper
           %input.txt-assignee{:placeholder => "输入成员姓名（缩写）", :type => "text"}/
       .select-due-date
-        %h3 任务截止时间
+        %h3 deadline
         .due-date-wrapper
           %input.txt-due-date{:placeholder => "选择截止时间", :type => "text"}/
           %a.link-remove-due-date{:href => "javascript:;", :title => "取消截止时间"}
@@ -154,28 +154,28 @@
           .due-date-picker
             .cal-wrapper
               .cal-shortcuts
-                %a.link-cal-shortcut.today{:href => "javascript:;"} [今天]
-                %a.link-cal-shortcut.tomorrow{:href => "javascript:;"} [明天]
-                %a.link-cal-shortcut.this-friday{:href => "javascript:;"} [本周]
-                %a.link-cal-shortcut.next-friday{:href => "javascript:;"} [下周]
+                %a.link-cal-shortcut.today{:href => "javascript:;"} [today]
+                %a.link-cal-shortcut.tomorrow{:href => "javascript:;"} [tomorrow]
+                %a.link-cal-shortcut.this-friday{:href => "javascript:;"} [this week]
+                %a.link-cal-shortcut.next-friday{:href => "javascript:;"} [next week]
               %input.hidden-due-date{:type => "hidden"}/
             .shortcuts-wrapper
-              %a.link-date-shortcut.today{"data-shortcut" => "today|td|jintian|jt|今天", :href => "javascript:;"} 今天
-              %a.link-date-shortcut.tomorrow{"data-shortcut" => "tomorrow|tm|mingtian|mt|明天", :href => "javascript:;"} 明天
-              %a.link-date-shortcut.after-tomorrow{"data-shortcut" => "houtian|ht|dat|后天", :href => "javascript:;"} 后天
-              %a.link-date-shortcut.monday{"data-shortcut" => "monday|zhouyi|xingqiyi|zy|xqy|周一|星期一|1", :href => "javascript:;"} 周一
-              %a.link-date-shortcut.tuesday{"data-shortcut" => "tuesday|zhouer|xingqier|ze|xqe|周二|星期二|2", :href => "javascript:;"} 周二
-              %a.link-date-shortcut.wednesday{"data-shortcut" => "wednesday|zhousan|xingqisan|zs|xqs|周三|星期三|3", :href => "javascript:;"} 周三
-              %a.link-date-shortcut.thursday{"data-shortcut" => "thursday|zhousi|xingqisi|zs|xqs|周四|星期四|4", :href => "javascript:;"} 周四
-              %a.link-date-shortcut.friday{"data-shortcut" => "friday|zhouwu|xingqiwu|zw|xqw|周五|星期五|5", :href => "javascript:;"} 周五
-              %a.link-date-shortcut.saturday{"data-shortcut" => "saturday|zhouliu|xingqiliu|zl|xql|周六|星期日|6", :href => "javascript:;"} 周六
-              %a.link-date-shortcut.sunday{"data-shortcut" => "sunday|zhouri|xingqiri|zr|xqr|周日|星期日|7", :href => "javascript:;"} 周日
+              %a.link-date-shortcut.today{"data-shortcut" => "today|td|jintian|jt|今天", :href => "javascript:;"} today
+              %a.link-date-shortcut.tomorrow{"data-shortcut" => "tomorrow|tm|mingtian|mt|明天", :href => "javascript:;"} tomorrow
+              %a.link-date-shortcut.after-tomorrow{"data-shortcut" => "houtian|ht|dat|后天", :href => "javascript:;"} the day after tomorrow
+              %a.link-date-shortcut.monday{"data-shortcut" => "monday|zhouyi|xingqiyi|zy|xqy|周一|星期一|1", :href => "javascript:;"} Monday
+              %a.link-date-shortcut.tuesday{"data-shortcut" => "tuesday|zhouer|xingqier|ze|xqe|周二|星期二|2", :href => "javascript:;"} Tuesday
+              %a.link-date-shortcut.wednesday{"data-shortcut" => "wednesday|zhousan|xingqisan|zs|xqs|周三|星期三|3", :href => "javascript:;"} Wednesday
+              %a.link-date-shortcut.thursday{"data-shortcut" => "thursday|zhousi|xingqisi|zs|xqs|周四|星期四|4", :href => "javascript:;"} Thursday
+              %a.link-date-shortcut.friday{"data-shortcut" => "friday|zhouwu|xingqiwu|zw|xqw|周五|星期五|5", :href => "javascript:;"} Friday
+              %a.link-date-shortcut.saturday{"data-shortcut" => "saturday|zhouliu|xingqiliu|zl|xql|周六|星期日|6", :href => "javascript:;"} Saturday
+              %a.link-date-shortcut.sunday{"data-shortcut" => "sunday|zhouri|xingqiri|zr|xqr|周日|星期日|7", :href => "javascript:;"} Sunday
       / <div class="popover-buttons">
       / <button type="button" class='btn btn-submit-popover'>确&amp;nbsp;&amp;nbsp;定</button>
       / </div>
   %script#tpl-dir-popover{:type => "text/html"}
     .change-dir-popover
-      %h3 选择文件夹
+      %h3 choose a folder
       .dirs{"data-url" => "/projects/96aa9d0d6f0746c2b5d91833a8b5419d/folders"}
         .node.create-folder{"data-url" => ""}
           %i.icon-folder.fa.fa-folder
@@ -186,4 +186,4 @@
                   %a.link-submit-dir.disabled{:href => "javascript:;"}
                     %i.fa.fa-check-circle
       .remove-dir
-        %a.link-remove-dir{:href => "javascript:;"} 移出文件夹
+        %a.link-remove-dir{:href => "javascript:;"} move out of the folder

@@ -11,15 +11,15 @@
         %a{:href => "#{teams_path}", :title => "首页"} Tower
       %ul.nav
         %li#nav-project.active
-          %a{:href => "#{team_projects_path(current_team)}"} 项目
+          %a{:href => "#{team_projects_path(current_team)}"} Project
         %li#nav-events
-          %a{:href => "#{team_events_path(current_team)}"} 动态
+          %a{:href => "#{team_events_path(current_team)}"} Timeline
         / %li#nav-week
         /   %a{:href => ""} 周报
         / %li#nav-calendar
         /   %a{:href => ""} 日历
         %li#nav-members
-          %a{:href => "#{team_users_path(current_team)}"} 团队
+          %a{:href => "#{team_users_path(current_team)}"} Team
         / %li#nav-me
         /   %a{:href => "/members/4ff03803694447f89160efd29f628968?me=1"} 我自己
       .command-bar
@@ -27,23 +27,23 @@
           = link_to destroy_user_session_path, method: :delete do
             %i.fa.fa-power-off
         .search-wrap
-          %a.link-search{:href => "javascript:;", :title => "搜索"}
+          %a.link-search{:href => "javascript:;", :title => "search"}
             %span.icon-search
           %form#form-search.form{:action => "/teams/156afb3ce0f54fc98c06f3805dcda316/search", :method => "get"}
-            %input#txt-search.keyword.no-border{:name => "keyword", :placeholder => "搜索", :type => "text"}
+            %input#txt-search.keyword.no-border{:name => "keyword", :placeholder => "Search", :type => "text"}
         .notification-info
-          %a.link{"data-stack" => "", "data-stack-root" => "", :href => "/teams/156afb3ce0f54fc98c06f3805dcda316/notifications/"} 通知
+          %a.link{"data-stack" => "", "data-stack-root" => "", :href => "/teams/156afb3ce0f54fc98c06f3805dcda316/notifications/"} Notification
           %a#notification-count.label.unread{"data-unread-count" => "0", "data-url" => "/teams/156afb3ce0f54fc98c06f3805dcda316/notifications/unread_counts", :href => "javascript:;", :title => "新的通知"}
             %span.fa.fa-bell-o.bell
             %span.num 1
           .noti-pop
             .noti-pop-hd
-              %span.title 通知
-              %a.noti-settings{"data-stack" => "", "data-stack-root" => "", :href => "/members/4ff03803694447f89160efd29f628968/notification_settings/", :title => "设置通知发送方式"} 通知设置
-              %a#noti-mark-read.mark-as-read{:href => "javascript:;", :title => "全部标记为已读"} 全部标为已读
-            .noti-pop-empty{:style => "display: none;"} - 没有新通知 -
+              %span.title Notification
+              %a.noti-settings{"data-stack" => "", "data-stack-root" => "", :href => "/members/4ff03803694447f89160efd29f628968/notification_settings/", :title => "设置通知发送方式"} Notification settings
+              %a#noti-mark-read.mark-as-read{:href => "javascript:;", :title => "全部标记为已读"} mark as read
+            .noti-pop-empty{:style => "display: none;"} - No notifications. -
             .noti-pop-action
-              %a.noti-all-link{"data-stack" => "", "data-stack-root" => "", :href => "/teams/156afb3ce0f54fc98c06f3805dcda316/notifications/"} 查看全部
+              %a.noti-all-link{"data-stack" => "", "data-stack-root" => "", :href => "/teams/156afb3ce0f54fc98c06f3805dcda316/notifications/"} View all
         .account-info
           .member-settings
             %a.link-member-menu{:href => "javascript:;", :title => "linyaoyi"}

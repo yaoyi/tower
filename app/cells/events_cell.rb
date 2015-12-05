@@ -17,7 +17,7 @@ class EventsCell < Cell::Rails
     events = args[:events]
     @date = events.first.created_at.to_date
   	@events = events.chunk {|e| e.project }
-    render 
+    render
   end
 
   def events_project_with_header(args)
@@ -33,91 +33,91 @@ class EventsCell < Cell::Rails
 
   def project_create(args)
   	@event = args[:event]
-   	@action = '创建了项目'
+   	@action = 'create project'
     @content_path = polymorphic_path(@event.eventable)
     render
   end
 
   def project_delete(args)
   	@event = args[:event]
-   	@action = '删除了项目'
+   	@action = 'delete project'
     @content_path = polymorphic_path(@event.eventable)
     render
   end
 
   def project_restore(args)
   	@event = args[:event]
-   	@action = '恢复了项目'
+   	@action = 'restore project'
     @content_path = polymorphic_path(@event.eventable)
     render
   end
   def todolist_create(args)
    	@event = args[:event]
-   	@action = '创建了任务清单'
+   	@action = 'create task list'
     render
   end
   def todolist_delete(args)
    	@event = args[:event]
-   	@action = '删除了任务清单'
+   	@action = 'delete task list'
     render
   end
   def todolist_restore(args)
    	@event = args[:event]
-   	@action = '恢复了任务清单'
+   	@action = 'restore task list'
     render
   end
   def todo_create(args)
    	@event = args[:event]
-   	@action = '创建了任务'
+   	@action = 'create task'
     render
   end
   def todo_delete(args)
    	@event = args[:event]
-   	@action = '删除了任务'
+   	@action = 'delete task'
     render
   end
   def todo_restore(args)
    	@event = args[:event]
-   	@action = '恢复了任务'
+   	@action = 'restore task'
     render
   end
   def todo_complete(args)
    	@event = args[:event]
-   	@action = '完成了任务'
+   	@action = 'complete task'
     render
   end
   def todo_resume(args)
    	@event = args[:event]
-   	@action = '重新打开了任务'
+   	@action = 'reopen task'
     render
   end
   def todo_assign(args)
     @event = args[:event]
-    @action = "给 #{@event.eventable.assignee.nickname} 指派了任务"
+    @action = "assign task to #{@event.eventable.assignee.nickname}"
     render
   end
   def todo_schedule(args)
    	@event = args[:event]
-    if @event.extra[:old_date].nil? 
-      old_date = "没有截止日期"
+    if @event.extra[:old_date].nil?
+      old_date = "no deadline"
     else
-      old_date = @event.extra[:old_date].strftime("%m月%d日")
+      old_date = @event.extra[:old_date].strftime("%m-%d")
     end
-    new_date = @event.extra[:new_date].strftime("%m月%d日")
-   	@action = "将任务完成时间从 #{old_date} 修改为 #{new_date}"
+    new_date = @event.extra[:new_date].strftime("%m-%d")
+   	@action = "change the deadline from #{old_date} to #{new_date}"
     render
   end
-  
+
   def comment_create(args)
    	@event = args[:event]
-   	@action = "回复了任务"
+   	@action = "comment task"
    	@body = @event.eventable.content
     @content_path = polymorphic_path([@event.project, @event.eventable.commentable])
     render
   end
   def comment_delete(args)
    	@event = args[:event]
-   	@action = "删除了回复"
+   	@action = "delete the comment"
    	@body = @event.eventable.content
     @content_path = polymorphic_path([@event.project, @event.eventable.commentable])
     render

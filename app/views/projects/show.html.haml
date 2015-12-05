@@ -1,7 +1,7 @@
 #page-project.page-inner{"data-guest-unlockable" => "", "data-page-name" => "test project", "data-project-creator" => "e0f43d2df23a4b7ab76877d4f4ff4d5c", "data-since" => "2014-10-15 14:09:28 UTC"}
   .project-header
     .project-hd-info
-      %span.project-title 
+      %span.project-title
         = @project.name
       %br
         %span.project-desc
@@ -11,29 +11,29 @@
     / %a.link-admin.link-recap 进展
     / %a.link-admin.link-stat 统计
   %h3
-    %a.title 任务清单
+    %a.title Task list
   .todos-all
     .filters-wrap
       .filters
-        %h5 任务筛选
+        %h5 Task filter
         %select#filter-assignee
-          %option{:value => "0"} 所有成员
+          %option{:value => "0"} All members
         %br
           %select#filter-due
-            %option{:value => "-1"} 所有时间
+            %option{:value => "-1"} All dates
           %br
             %span.filter-desc{:style => "display: none;"}
               %strong> ←
-              筛选结果已用
-              %em> 荧光笔
-              标记
+              filtered results
+              %em>
+              marked
     .todolists-wrap
       .todolist-form.new
         = form_for [@project, Todolist.new], :html => {:class => "form"} do |f|
           = f.event_trigger :create, current_user.id
-          = f.text_field :name, :placeholder => "任务清单名称", :class => "todolist-name no-border"
+          = f.text_field :name, :placeholder => "title", :class => "todolist-name no-border"
           %p.form-buttons
-            = f.submit "保存，开始添加任务",:class => "btn btn-create-todolist btn-primary"
+            = f.submit "save",:class => "btn btn-create-todolist btn-primary"
       .todolists.ui-sortable
         - @project.todolists.each do |todolist|
           - unless todolist.deleted?
@@ -41,7 +41,7 @@
               .title
                 %h4
                   %span.name
-                    %a.todolist-rest{:href => "#{project_todolist_path(@project, todolist)}", :title => "#{todolist.name}"}  
+                    %a.todolist-rest{:href => "#{project_todolist_path(@project, todolist)}", :title => "#{todolist.name}"}
                       = todolist.name
                   = link_to(project_todolist_path(@project, todolist), data: { confirm: "Are you sure?" }, :method => :delete) do
                     %i.fa.fa-trash-o.fa-fw
@@ -64,7 +64,7 @@
                         %a.label.todo-assign-due.delay
                           %span.assignee
                             = todo.assignee.nickname unless todo.assignee.nil?
-                          %span.due 
+                          %span.due
                             = todo.due_at.strftime('%y-%m-%d') unless todo.due_at.nil?
                         = link_to(project_todo_path(@project, todo), data: { confirm: "Are you sure?" }, :method => :delete) do
                           %i.fa.fa-trash-o.fa-fw
@@ -74,8 +74,8 @@
                     = f.event_trigger :create, current_user.id
                     = f.hidden_field 'todolist_id', :value => todolist.id
                     .form-body
-                      = f.text_area :content, :class => 'todo-content no-border', :placeholder => '新的任务', :style => "overflow: hidden; word-wrap: break-word; resize: none; height: 24px;"
+                      = f.text_area :content, :class => 'todo-content no-border', :placeholder => 'new task', :style => "overflow: hidden; word-wrap: break-word; resize: none; height: 24px;"
                       = f.select :assignee, options_for_select(@project.users.collect {|u| [ u.nickname, u.id ] }), {:include_blank => 'choose assignee'}
                       = f.date_field :due_at
                       .buttons.create-buttons
-                        %button.btn.btn-primary.btn-create-todo{"data-disable-with" => "正在保存...", :type => "submit"} 添加任务
+                        %button.btn.btn-primary.btn-create-todo{"data-disable-with" => saving", :type => "submit"} new task

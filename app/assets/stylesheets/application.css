@@ -2945,7 +2945,7 @@ div.comment.comment-form.edit .form-field {
     height: 30px;
     overflow: hidden;
     text-indent: -9999px;
-    background-image: url(https://tower.im/assets/logo-dark-15f19b0ced7f3bf3f20e759b333105d8.png);
+    background-image: url(https://tower/assets/logo-dark-15f19b0ced7f3bf3f20e759b333105d8.png);
     background-repeat: no-repeat;
     background-size: 77px auto;
     background-position: 0 center;
@@ -3492,7 +3492,7 @@ div.comment.comment-form.edit .form-field {
     height: 26px;
     overflow: hidden;
     text-indent: -9999px;
-    background-image: url(https://tower.im/assets/logo-dark-15f19b0ced7f3bf3f20e759b333105d8.png);
+    background-image: url(https://tower/assets/logo-dark-15f19b0ced7f3bf3f20e759b333105d8.png);
     background-repeat: no-repeat;
     background-size: 77px auto;
     background-position: 0 0;
@@ -3500,7 +3500,7 @@ div.comment.comment-form.edit .form-field {
 
 @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
     .topbar .logo a {
-        background-image: url(https://tower.im/assets/logo-dark-15f19b0ced7f3bf3f20e759b333105d8.png);
+        background-image: url(https://tower/assets/logo-dark-15f19b0ced7f3bf3f20e759b333105d8.png);
         background-size: 77px auto;
     }
 }
@@ -3678,7 +3678,7 @@ div.comment.comment-form.edit .form-field {
     top: 13px;
     width: 22px;
     height: 22px;
-    background-image: url(https://tower.im/assets/icon-comment-events-0b9148931195a82f7f3b350e22988811.png);
+    background-image: url(https://tower/assets/icon-comment-events-0b9148931195a82f7f3b350e22988811.png);
     background-repeat: no-repeat;
     background-size: 22px auto;
     background-position: -22px 0;
@@ -3922,7 +3922,7 @@ div.comment.comment-form.edit .form-field {
 .page-center .hd .logo a,.sign-page .hd .logo a {
     display: block;
     height: 100%;
-    background-image: url(https://tower.im/assets/logo-sign-268ea9460c71d408dc80865894b6e159.png);
+    background-image: url(https://tower/assets/logo-sign-268ea9460c71d408dc80865894b6e159.png);
     background-repeat: no-repeat;
     background-size: 190px auto;
     background-position: 0 0;
@@ -6320,7 +6320,7 @@ div.comment.comment-form.edit .form-field {
     padding: 4px 5px;
     text-indent: -999px;
     overflow: hidden;
-    background-image: url(https://tower.im/assets/todo-actions-icon-03198277d00fa322f26853a9fcac697a.png);
+    background-image: url(https://tower/assets/todo-actions-icon-03198277d00fa322f26853a9fcac697a.png);
     background-repeat: no-repeat;
     background-size: 60px auto;
 }
@@ -12440,14 +12440,14 @@ html.simple-gallery-active {
     display: inline-block;
     background-position: 0 0;
     vertical-align: middle;
-    background-image: url(https://tower.im/assets/simple-checkbox-abb93bb9f0144350d887b38bea73befe.png);
+    background-image: url(https://tower/assets/simple-checkbox-abb93bb9f0144350d887b38bea73befe.png);
     background-repeat: no-repeat;
     background-size: 16px auto;
 }
 
 @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
     .simple-checkbox {
-        background-image: url(https://tower.im/assets/simple-checkbox-abb93bb9f0144350d887b38bea73befe.png);
+        background-image: url(https://tower/assets/simple-checkbox-abb93bb9f0144350d887b38bea73befe.png);
         background-size: 16px auto;
     }
 }
@@ -15789,7 +15789,7 @@ div.vjs-loading-spinner .ball8 {
 }
 
 .topbar .logo a {
-    background-image: url(https://tower.im/assets/logo-dark-15f19b0ced7f3bf3f20e759b333105d8.png);
+    background-image: url(https://tower/assets/logo-dark-15f19b0ced7f3bf3f20e759b333105d8.png);
     background-repeat: no-repeat;
     background-size: 77px auto;
     background-position: 0 0;
@@ -15802,7 +15802,7 @@ div.vjs-loading-spinner .ball8 {
 
 @media all and (-webkit-min-device-pixel-ratio: 1.5), all and (-o-min-device-pixel-ratio: 3 / 2), all and (min--moz-device-pixel-ratio: 1.5), all and (min-device-pixel-ratio: 1.5) {
     .topbar .logo a {
-        background-image: url(https://tower.im/assets/logo-dark-15f19b0ced7f3bf3f20e759b333105d8.png);
+        background-image: url(https://tower/assets/logo-dark-15f19b0ced7f3bf3f20e759b333105d8.png);
         background-size: 77px auto;
     }
 }
@@ -21778,7 +21778,7 @@ div.vjs-loading-spinner .ball8 {
 }
 
 #page-project .project-links a.link-admin-members {
-    background-image: url(https://tower.im/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
+    background-image: url(https://tower/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
     background-repeat: no-repeat;
     background-size: 20px auto;
     background-position: 2px 2px;
@@ -21792,7 +21792,7 @@ div.vjs-loading-spinner .ball8 {
 }
 
 #page-project .project-links a.link-admin-settings {
-    background-image: url(https://tower.im/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
+    background-image: url(https://tower/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
     background-repeat: no-repeat;
     background-size: 20px auto;
     background-position: 4px -18px;
@@ -21806,7 +21806,7 @@ div.vjs-loading-spinner .ball8 {
 }
 
 #page-project .project-links a.link-recap {
-    background-image: url(https://tower.im/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
+    background-image: url(https://tower/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
     background-repeat: no-repeat;
     background-size: 20px auto;
     background-position: 5px -38px;
@@ -21820,7 +21820,7 @@ div.vjs-loading-spinner .ball8 {
 }
 
 #page-project .project-links a.link-stat {
-    background-image: url(https://tower.im/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
+    background-image: url(https://tower/assets/icon-prj-49a0cb48a909a1b42e5be6a11844f171.png);
     background-repeat: no-repeat;
     background-size: 20px auto;
     background-position: 2px -58px;
@@ -22198,7 +22198,7 @@ div.vjs-loading-spinner .ball8 {
 }
 
 #page-projects .projects.grid-view .project.new .badge {
-    background-image: url(https://tower.im/assets/icon-new-project-7c5f3e1da6cb064d9895f54a0fbf59b1.png);
+    background-image: url(https://tower/assets/icon-new-project-7c5f3e1da6cb064d9895f54a0fbf59b1.png);
     background-repeat: no-repeat;
     background-size: 43px auto;
     background-position: center bottom;
